@@ -6,6 +6,7 @@ import { vAutoAnimate } from '@formkit/auto-animate';
 
 const emit = defineEmits(['submit'])
 
+
 const props = defineProps({
     title: String,
     buttonTitle: String,
@@ -17,6 +18,10 @@ const props = defineProps({
         ],
     },
     message: ref(),
+    no_bg: {
+        type: Boolean,
+        default: false,
+    }
 })
 
 const formData = reactive({})
@@ -36,9 +41,9 @@ const showMessage = computed(() => {return props.message !== null})
 
 <template>
 
-    <div class="flex flex-col p-8 w-[25em] bg-base-200 rounded-md justify-center items-start shadow-glow-md mx-auto" v-auto-animate>
+    <div class="flex flex-col p-8 w-[25em] rounded-md justify-center items-start mx-auto" :class="no_bg ? 'bg-none': 'bg-base-200 shadow-glow-md'" v-auto-animate>
 
-        <h1 class="text-[3em] font-black self-center text-shadow-md mb-3">{{ title }}</h1>
+        <h1 v-if="title" class="text-[2.5em] font-black self-center text-shadow-md mb-3">{{ title }}</h1>
 
         <div class="alert alert-error mb-2 self-center" v-if="showMessage">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
@@ -64,6 +69,6 @@ const showMessage = computed(() => {return props.message !== null})
 
         </div>
 
-        <simpleButton class="mt-[2em] self-center" :button-title="buttonTitle" @click="handleSubmit" bg-color="btn-primary" />
+        <simpleButton :listen-enter="true" class="mt-[2em] self-center" :button-title="buttonTitle" @click="handleSubmit" bg-color="btn-primary" />
     </div>
 </template>

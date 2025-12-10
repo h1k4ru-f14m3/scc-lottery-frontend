@@ -5,7 +5,7 @@ import { ref } from 'vue'
 export const showModal = ref(false)
 export const currentTabIndex = ref(0)
 
-export default async function authFormSubmit(data, response, route) {
+export default async function authFormSubmit(data, response, route, backhome = true) {
   //   console.log('Received from children... \n' + JSON.stringify(data, null, 2) + '\n')
 
   let sendable = true
@@ -34,7 +34,7 @@ export default async function authFormSubmit(data, response, route) {
   }
 
   //   console.log(sendable)
-  formSubmit(data, response, route)
+  formSubmit(data, response, route, false, backhome)
 
   // let res = await api.post(route, data)
   // const resultData = res.data
@@ -61,14 +61,20 @@ export async function formSubmit(data, response, route, changeIndex = false, bac
     if (back_home) {
       router.push('/')
     } else {
-      response.value = 'refresh'
+      if (response) {
+        response.value = resultData.message
+      }
     }
   } else {
-    response.value = resultData.message
+    if (response) {
+      response.value = resultData.message
+    }
     setTimeout(() => {
       response.value = null
     }, 2000)
   }
+
+  return resultData
 }
 
 export async function getData(route, response = null, offset = 0, q = null, search_for = null) {

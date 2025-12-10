@@ -1,22 +1,33 @@
 <script setup>
 import { ref } from 'vue'
-import { FormKit } from '@formkit/vue'
-import simpleButton from '@/components/general_components/simpleButton.vue'
+import api from '@/api'
+import formDiv from '@/components/form/formDiv.vue'
 
-function login(data) {
-  console.log('SUP! ', data)
+const props = defineProps({
+  response_obj: {
+    type: Object,
+    default: () => {
+      ref(null)
+    },
+  },
+})
+
+const emits = defineEmits(['addticket'])
+
+const formInputs = [{ name: 'code', label: 'Code' }]
+
+const handleAddTickets = async (data) => {
+  emits('addticket', data)
 }
 </script>
 
 <template>
-  <!-- <FormKit type="form" submit-label="Login" @submit="login">
-    <FormKit name="email" label="Email address" validation="required|email" />
-    <FormKit type="password" name="password" label="Password" validation="required" />
-  </FormKit> -->
-  <FormKit
-    type="search"
-    :sections-schema="{
-      suffix: 'TEST',
-    }"
-  ></FormKit>
+  <formDiv
+    :no_bg="true"
+    title="Add Tickets"
+    button-title="Add Ticket"
+    :inputs="formInputs"
+    :message="props.response_obj"
+    @submit="handleAddTickets"
+  ></formDiv>
 </template>

@@ -38,16 +38,16 @@ async function handleImage(event) {
         dataToSend.img_link = reader.result
     }
 
-    reader.readAsDataURL(file)
+    // reader.readAsDataURL(file)
 
-    // const compressedFile = await imageCompression(file, {
-    //     maxSizeMB: 0.5,
-    //     maxWidthOrHeight: 1080,
-    // })
+    const compressedFile = await imageCompression(file, {
+        maxSizeMB: 0.5,
+        maxWidthOrHeight: 1080,
+    })
 
-    // console.log('Compressed File size: ', compressedFile.size)
+    console.log('Compressed File size: ', compressedFile.size)
 
-    // reader.readAsDataURL(compressedFile)
+    reader.readAsDataURL(compressedFile)
 }
 
 </script>

@@ -2,9 +2,11 @@
 import simpleTable from '../general_components/simpleTable.vue'
 import simpleButton from '../general_components/simpleButton.vue'
 import simpleModal from '../general_components/simpleModal.vue'
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 import { getData } from '@/helpers'
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/vue'
+import api from '@/api'
+import AddTickets from './modals/tickets/addTickets.vue'
 
 const response = ref({ data: [] })
 onMounted(async () => {
@@ -38,10 +40,50 @@ async function fetch_filter(val) {
   console.log('NEW VAL: ', val)
   await getData('/tickets/', response, 0, val, 'status')
 }
+
+const showModal = ref(false)
+function toggleModal() {
+  if (!showModal.value) {
+    showModal.value = true
+  } else if (showModal.value) {
+    showModal.value = false
+  }
+}
+
+const add_ticket_res = ref(null)
+async function handleAddTicket(data) {
+  let res = await api.post('/tickets/add_ticket', data)
+  const resultData = res.data
+
+  if (resultData.success) {
+    toggleModal()
+    await getData('/tickets/', response, 0, filter.value, 'status')
+  } else {
+    response.value = resultData.message
+    setTimeout(() => {
+      response.value = null
+    }, 2000)
+  }
+}
 </script>
 
 <template>
   <div>
+    <simpleModal
+      :show-modal="showModal"
+      @close-modal="toggleModal"
+      :use_extra_components="true"
+      :extra_component="[
+        {
+          component: AddTickets,
+          props: {
+            onAddticket: handleAddTicket,
+            response_obj: add_ticket_res,
+          },
+        },
+      ]"
+    ></simpleModal>
+
     <!-- THE TOP BAR WITH THE BUTTONS FOR FILTER AND ADD -->
     <div class="flex w-full justify-center fixed bg-base-100 z-10 p-3">
       <!-- FILTER SELECTION -->
@@ -69,7 +111,7 @@ async function fetch_filter(val) {
       <simpleButton
         bg-color="btn btn-primary"
         button-title="Add Tickets"
-        @click-extra="testrun"
+        @click-extra="toggleModal"
       ></simpleButton>
     </div>
 

@@ -28,8 +28,9 @@ getData('/', root_response)
 getData('/bought_data', bought_data)
 
 const handleConfirmCart = async (data) => {
-  currentTabIndex.value = await formSubmit(data, message_res, '/cart/confirm', true)
-  // console.log(message_res)
+  await formSubmit(data, message_res, '/cart/confirm', true)
+  currentTabIndex.value = 0
+  console.log(message_res)
 }
 
 const showPayment = ref(false)

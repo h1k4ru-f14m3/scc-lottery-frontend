@@ -33,7 +33,7 @@ const props = defineProps({
         dataList: [],
       }
     ]
-  }
+  },
 })
 
 const emits = defineEmits(['closeModal'])
@@ -57,13 +57,20 @@ function set_show(val) {
             v-for="(extra, idx) in props.extra_component" 
             :is="extra.component" 
             v-bind="{...extra.props,...(extra.key && extra.dataList && extra.dataList[idx] ? { [extra.key]: extra.dataList[idx] } : {})}" 
+            v-on="extra.props"
             :key="idx"
             />
         </DialogDescription>
 
         <DialogDescription class="flex flex-col" v-else>
             <p v-if="props.modalDescription">{{ props.modalDescription }}</p>
-            <img v-if="props.img_view" :src="props.img_src" alt="This is..."></img>
+            <div v-if="props.img_src">
+              <img v-if="props.img_view" :src="props.img_src" alt="This is..."></img>
+            </div>
+            <div v-else>
+              <p>Loading...</p>
+            </div>
+            
         </DialogDescription>
       </DialogPanel>
     </div>

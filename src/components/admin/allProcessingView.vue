@@ -4,6 +4,7 @@ import simpleButton from '../general_components/simpleButton.vue'
 import simpleModal from '../general_components/simpleModal.vue'
 import { ref, onMounted } from 'vue'
 import { getData } from '@/helpers'
+import api from '@/api'
 
 const confirmBtnProps = {
   'button-title': 'Confirm',
@@ -25,13 +26,21 @@ onMounted(async () => {
 const showModal = ref(false)
 const img_to_show = ref(null)
 
-function toggleModal(extraData) {
+async function toggleModal(extraData) {
   if (!showModal.value) {
     showModal.value = true
   } else if (showModal.value) {
+    img_to_show.value = null
     showModal.value = false
   }
-  img_to_show.value = extraData
+
+  if (extraData) {
+    const img_id = { id: extraData }
+    console.log('IMG_ID: ', img_id)
+    const img_fetch = await api.post('/order/load_img', img_id)
+    const img_src = img_fetch.data.img_data[0]
+    img_to_show.value = img_src
+  }
 }
 </script>
 
