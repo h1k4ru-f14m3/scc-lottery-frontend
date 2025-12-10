@@ -34,7 +34,7 @@ const router = createRouter({
       name: 'logout',
       beforeEnter: async (to, from, next) => {
         try {
-          ;(await api.get('/logout', { withCredentials: true }), next('/'))
+          ;(await api.get('/logout', { withCredentials: true }), (window.location.href = '/'))
         } catch (err) {
           console.error(err)
           next('/')
