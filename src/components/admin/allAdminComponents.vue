@@ -4,12 +4,11 @@ import allOrdersView from './allProcessingView.vue'
 import allUsersView from './allUsersView.vue'
 import allOrderRecords from './allOrderRecords.vue'
 import allTickets from './allTickets.vue'
-import simpleButton from '../general_components/simpleButton.vue'
 </script>
 
 <template>
   <TabGroup>
-    <div class="flex w-full items-center justify-center mb-4">
+    <div class="flex w-full items-center justify-center mb-4 pt-5">
       <TabList class="tabs tabs-box self-center">
         <Tab class="tab focus:outline-none">Tickets</Tab>
         <Tab class="tab focus:outline-none">Records</Tab>

@@ -5,7 +5,7 @@ import simpleModal from '../general_components/simpleModal.vue'
 import setRole from './setRole.vue'
 import { ref, onMounted } from 'vue'
 import { getData, formSubmit } from '@/helpers'
-import AddUsers from './modals/users/addUsers.vue'
+import addUsers from './modals/users/addUsers.vue'
 
 const modalBtnProps = {
   'button-title': 'Edit User',
@@ -20,7 +20,7 @@ async function handleSetRole(val) {
   console.log('This is the role data: ', val)
   await formSubmit(val, res_message, '/user/set_role', false, false)
 
-  if (res_message.value === 'refresh') {
+  if (res_message.value) {
     toggleEditModal(val)
     await getData('/user/', response)
   }
@@ -56,9 +56,9 @@ function toggleAddModal() {
 
 const mes_response = ref(null)
 async function handleAddUser(data) {
-  let res = await formSubmit(data, mes_response, '/user/add_user')
+  let res = await formSubmit(data, mes_response, '/user/add_user', false, false)
   console.log('RES: ', res)
-  const resultData = res.data
+  const resultData = res
 
   if (resultData.success) {
     await getData('/user/', response)
@@ -81,7 +81,7 @@ async function handleAddUser(data) {
         :use_extra_components="true"
         :extra_component="[
           {
-            component: AddUsers,
+            component: addUsers,
             props: {
               onAdduser: handleAddUser,
               response_obj: mes_response,
