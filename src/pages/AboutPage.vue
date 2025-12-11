@@ -3,13 +3,12 @@ import { ref } from 'vue'
 import AgentsList from '@/components/agent/agentsList.vue'
 
 const prizeIMGs = ref([
-  ['First Prize', 'https://drive.google.com/file/d/11frzxG2sU5Lch_9lFwziK2qwk1WO6996/view?usp=sharing'],
-  ['Second Prize', 'https://drive.google.com/file/d/1gof3uvGu977xFdV_eVPoArhndB17aedM/view?usp=sharing'],
-  ['Third Prize', 'https://drive.google.com/file/d/1PmINKIy2l4Wkbiv1bc3qUrH2Y7ln2q4S/view?usp=sharing'],
-  ['Banner', 'https://drive.google.com/file/d/1jIiR4DBgSEdX2nedzCtP8w7nonGjAkoG/view?usp=sharing'],
+  ['First Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/first_c3gjan.jpg'],
+  ['Second Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/Secound_mxvtxo.jpg'],
+  ['Third Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/third_zkd2r9.jpg'],
 ])
   // Outside image for About section
-const aboutImage = 'https://drive.google.com/file/d/1jIiR4DBgSEdX2nedzCtP8w7nonGjAkoG/view?usp=sharing'
+const aboutImage = 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446460/banner_bmt6e9.jpg'
 </script>
 
 <template>
@@ -47,7 +46,7 @@ const aboutImage = 'https://drive.google.com/file/d/1jIiR4DBgSEdX2nedzCtP8w7nonG
       <!-- RIGHT IMAGE -->
       <div class="flex justify-center md:justify-end">
         <img
-        :src="aboutImage"
+        :src="https://res.cloudinary.com/dzx6dedea/image/upload/v1765446460/banner_bmt6e9.jpg"
         alt="About Image"
         class="w-full max-w-md h-[25em] object-cover rounded-xl shadow-lg"
         />
