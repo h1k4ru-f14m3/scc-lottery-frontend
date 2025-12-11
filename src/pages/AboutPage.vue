@@ -53,26 +53,30 @@ const prizeIMGs = ref([
 
     <!-- RIGHT SIDE: IMAGE with floating effect -->
     <div class="flex justify-center lg:justify-end order-1 lg:order-2">
-      <div class="relative animate-float">
-        <!-- Glow effect behind image -->
-        <div class="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 
-                      rounded-3xl blur-3xl opacity-30 -z-10 scale-110"></div>
-        
-        <img
-          src="https://res.cloudinary.com/dzx6dedea/image/upload/v1765454140/ticket_zsxm2e.jpg"
-          alt="ၵၢၼ်ပၢႆးပၺ်ႇၺႃႇ သဵၼ်ႈတၢင်း"
-          class="w-full max-w-full h-[28rem] md:h-[32rem] object-cover rounded-3xl 
-                 shadow-2xl border-8 border-white/90
-                 hover:scale-105 transition-transform duration-700"
-        />
-        
-        <!-- Small decorative badge -->
-        <div class="absolute -bottom-4 -left-4 bg-amber-600 text-white px-6 py-3 
-                      rounded-full text-sm font-bold shadow-lg">
-          တႆးၵူၼ်း
-        </div>
-      </div>
+  <div class="relative">
+    <!-- Soft glow background -->
+    <div class="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 
+                  rounded-3xl blur-3xl opacity-30 -z-10 scale-110"></div>
+
+    <!-- Image Container – now fully responsive for landscape images -->
+    <div class="w-full max-w-4xl">
+      <img
+        src="https://res.cloudinary.com/dzx6dedea/image/upload/v1765454140/ticket_zsxm2e.jpg"
+        alt="ၵၢၼ်ပၢႆးပၺ်ႇၺႃႇ သဵၼ်ႈတၢင်း"
+        class="w-full h-auto max-h-[85vh] object-contain rounded-3xl
+               shadow-2xl border-8 border-white/90
+               hover:scale-[1.02] transition-transform duration-700
+               drop-shadow-2xl"
+      />
     </div>
+
+    <!-- Decorative badge -->
+    <div class="absolute -bottom-4 -left-4 bg-amber-600 text-white px-6 py-3 
+                  rounded-full text-sm font-bold shadow-lg font-shan">
+      တႆးၵူၼ်း
+    </div>
+  </div>
+</div>
   </div>
 </section>
 
