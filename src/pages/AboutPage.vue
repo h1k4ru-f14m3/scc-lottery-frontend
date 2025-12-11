@@ -7,6 +7,19 @@ const prizeIMGs = ref([
   ['Second Prize', '/src/assets/prizes/prize-2.jpg'],
   ['Third Prize', '/src/assets/prizes/prize-3.jpg'],
 ])
+  const props = defineProps({
+aboutText: {
+type: String,
+default: `We make cool stuff and help people learn. This section gives a short intro about the product or the team — keep it friendly and clear.`
+},
+aboutImage: {
+type: String,
+default: 'https://your-new-image-link-here.com/image.jpg'
+},
+aboutImageAlt: {
+type: String,
+default: 'About image'
+}
 </script>
 
 <template>
@@ -21,7 +34,7 @@ const prizeIMGs = ref([
 
 <div class="flex justify-center md:justify-end">
 <img
-:src="https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW1hZ2V8ZW58MHx8MHx8fDA%3D"
+:src="aboutImage"
 :alt="aboutImageAlt"
 class="w-full max-w-md rounded-2xl shadow-lg object-cover"
 loading="lazy"
