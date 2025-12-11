@@ -10,7 +10,7 @@ const prizeIMGs = ref([
 </script>
 
 <template>
-  <div class="pt-[5em] flex flex-row flex-wrap justify-center gap-5">
+  <section class="max-w-6xl mx-auto px-6 py-12 space-y-16">
     <h1 class="text-[3em] font-black text-shadow-md font-shan">ဝႂ်သုၼ်ႇလီ</h1>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
 <div>
@@ -39,5 +39,5 @@ loading="lazy"
     <!-- <h1 class="text-[3em] font-black text-shadow-md mb-3 self-center">Agents</h1> -->
      <agents-list></agents-list>
 
-  </div>
+  </section>
 </template>
