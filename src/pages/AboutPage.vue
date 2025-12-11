@@ -12,13 +12,38 @@ const prizeIMGs = ref([
 <template>
   <div class="pt-[5em] flex flex-row flex-wrap justify-center gap-5">
     <h1 class="text-[3em] font-black text-shadow-md font-shan">ဝႂ်သုၼ်ႇလီ</h1>
-    <div class="w-full p-5">
-      <h1 class="text-[2.5em] font-black text-shadow-md font-shan">ယိူင်းဢၢၼ်း ဝႂ်သုၼ်ႇလီ</h1>
-      <h2 class="text-[1.5em] text-shadow-md mb-3 font-shan">တႃႇတေမေႇသၢင်ႈ ၵၢၼ်ပၢႆးပၺ်ႇၺႃႇၸိူဝ်ႉၶိူဝ်းတႆး</h2>
-      <textarea disabled class="text-[1.25em] text-shadow-md font-shan text-justify w-full md:w-[60vw] h-[35vh] md:h-[25vh] resize-none">
-          ၼႂ်းၵၢၼ်သၢင်ႈပၢႆးပၺ်ႇၺႃႇၸိူဝ်ႉၶိူဝ်းတႆးၼႆႉ ႁႅင်းငဝ်ႈတိုၼ်းတႃႇပွင်ၵၢၼ်မၼ်း တေၸႂ်ယႂ်ႇ ၸဝ်ႈတႃႇၼႃႉၽူႈလူႇတၢၼ်း ၵေႃႈဢမ်ႇယိုၼ်းယၢဝ်း။ တေၸႂ်ယႂ်ႇဢဵၼ်ႁႅင်း ၵႃႊႁဵၼ်းတီႈပေႃႈမႄႈ လုၵ်ႈႁဵၼ်းၵေႃႈ သမ်ႉၺႃးၶၢဝ်းၽွင်းတႆးတူၵ်းၵိၼ်းၼႆလႄႈ ၵေႃတႆး ၸင်ႇၶူင်ႊဝူၼ်ႉ လၢႆးႁူမ်ႈတိုၼ်း ဢၼ်မီးတၢင်းမုင်ႇမွင်း ၽွၼ်းလႆႈၶိုၼ်းၼၼ်ႉယူႇဢေႃႈ။ ၵၢၼ်ႁူမ်ႈတိုၼ်း ဢၼ်မီးတၢင်းမုင်ႈမွင်းၽွၼ်းလႆႈၶိုၼ်းၼၼ်ႉ ပဵၼ်ၵၢၼ်ဢၼ်ၵူႊၵေႃႉ တေၸူမ်းသိူဝ်း ႁူမ်ႈသၢင်ႈပႃးၸွမ်းၼႆၼၼ်ႉယဝ်ႉၶႃႈ။
-      </textarea>
-    </div>
+    <section class="w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center p-5">
+
+  <!-- LEFT SIDE: TEXT -->
+  <div class="w-full">
+    <h1 class="text-[2.5em] font-black text-shadow-md font-shan">
+      ယိူင်းဢၢၼ်း ဝႂ်သုၼ်ႇလီ
+    </h1>
+
+    <h2 class="text-[1.5em] text-shadow-md mb-3 font-shan">
+      တႃႇတေမေႇသၢင်ႈ ၵၢၼ်ပၢႆးပၺ်ႇၺႃႇၸိူဝ်ႉၶိူဝ်းတႆး
+    </h2>
+
+    <textarea
+      disabled
+      class="text-[1.25em] text-shadow-md font-shan text-justify
+             w-full h-[35vh] md:h-[30vh] resize-none rounded-lg p-3 bg-white/80">
+ၼႂ်းၵၢၼ်သၢင်ႈပၢႆးပၺ်ႇၺႃႇၸိူဝ်ႉၶိူဝ်းတႆးၼႆႉ ႁႅင်းငဝ်ႈတိုၼ်းတႃႇပွင်ၵၢၼ်မၼ်း 
+တေၸႂ်ယႂ်ႇ ၸဝ်ႈတႃႇၼႃႉၽူႈလူႇတၢၼ်း ၵေႃႈဢမ်ႇယိုၼ်းယၢဝ်း… 
+    </textarea>
+  </div>
+
+  <!-- RIGHT SIDE: IMAGE -->
+  <div class="flex justify-center md:justify-end">
+    <img 
+      src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/your-image.jpg"
+      alt="About Image"
+      class="w-full max-w-md h-[25em] object-cover rounded-xl shadow-lg"
+    />
+  </div>
+
+</section>
+
 
     <h1 class="text-[3em] font-black text-shadow-md font-shan">Prizes</h1>
     <section class="w-full p-5">
