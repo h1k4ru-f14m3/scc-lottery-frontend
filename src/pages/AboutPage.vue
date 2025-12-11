@@ -8,6 +8,8 @@ const prizeIMGs = ref([
   ['Third Prize', 'https://drive.google.com/file/d/1PmINKIy2l4Wkbiv1bc3qUrH2Y7ln2q4S/view?usp=sharing'],
   ['Banner', 'https://drive.google.com/file/d/1jIiR4DBgSEdX2nedzCtP8w7nonGjAkoG/view?usp=sharing'],
 ])
+  // Outside image for About section
+const aboutImage = 'https://drive.google.com/file/d/1jIiR4DBgSEdX2nedzCtP8w7nonGjAkoG/view?usp=sharing'
 </script>
 
 <template>
@@ -45,9 +47,9 @@ const prizeIMGs = ref([
       <!-- RIGHT IMAGE -->
       <div class="flex justify-center md:justify-end">
         <img
-          src="/src/assets/prizes/prize-1.jpg"
-          alt="About Image"
-          class="w-full max-w-md h-[25em] object-cover rounded-xl shadow-lg"
+        :src="aboutImage"
+        alt="About Image"
+        class="w-full max-w-md h-[25em] object-cover rounded-xl shadow-lg"
         />
       </div>
 
