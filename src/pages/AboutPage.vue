@@ -3,9 +3,10 @@ import { ref } from 'vue'
 import AgentsList from '@/components/agent/agentsList.vue'
 
 const prizeIMGs = ref([
-  ['First Prize', '/src/assets/prizes/prize-1.jpg'],
-  ['Second Prize', '/src/assets/prizes/prize-2.jpg'],
-  ['Third Prize', '/src/assets/prizes/prize-3.jpg'],
+  ['First Prize', 'https://drive.google.com/file/d/11frzxG2sU5Lch_9lFwziK2qwk1WO6996/view?usp=sharing'],
+  ['Second Prize', 'https://drive.google.com/file/d/1gof3uvGu977xFdV_eVPoArhndB17aedM/view?usp=sharing'],
+  ['Third Prize', 'https://drive.google.com/file/d/1PmINKIy2l4Wkbiv1bc3qUrH2Y7ln2q4S/view?usp=sharing'],
+  ['Banner', 'https://drive.google.com/file/d/1jIiR4DBgSEdX2nedzCtP8w7nonGjAkoG/view?usp=sharing'],
 ])
 </script>
 
