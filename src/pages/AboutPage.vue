@@ -59,7 +59,7 @@ const prizeIMGs = ref([
                       rounded-3xl blur-3xl opacity-30 -z-10 scale-110"></div>
         
         <img
-          src="https://res.cloudinary.com/YOUR_CLOUD_NAME/image/upload/v1234567890/your-image.jpg"
+          src="https://res.cloudinary.com/dzx6dedea/image/upload/v1765454140/ticket_zsxm2e.jpg"
           alt="ၵၢၼ်ပၢႆးပၺ်ႇၺႃႇ သဵၼ်ႈတၢင်း"
           class="w-full max-w-lg h-[28rem] md:h-[32rem] object-cover rounded-3xl 
                  shadow-2xl border-8 border-white/90
