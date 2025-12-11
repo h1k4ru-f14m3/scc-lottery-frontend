@@ -7,8 +7,6 @@ const prizeIMGs = ref([
   ['Second Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/Secound_mxvtxo.jpg'],
   ['Third Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/third_zkd2r9.jpg'],
 ])
-  // Outside image for About section
-const aboutImage = 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446460/banner_bmt6e9.jpg'
 </script>
 
 <template>
