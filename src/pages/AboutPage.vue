@@ -61,7 +61,7 @@ const prizeIMGs = ref([
         <img
           src="https://res.cloudinary.com/dzx6dedea/image/upload/v1765454140/ticket_zsxm2e.jpg"
           alt="ၵၢၼ်ပၢႆးပၺ်ႇၺႃႇ သဵၼ်ႈတၢင်း"
-          class="w-full max-w-lg h-[28rem] md:h-[32rem] object-cover rounded-3xl 
+          class="w-full max-w-full h-[28rem] md:h-[32rem] object-cover rounded-3xl 
                  shadow-2xl border-8 border-white/90
                  hover:scale-105 transition-transform duration-700"
         />
