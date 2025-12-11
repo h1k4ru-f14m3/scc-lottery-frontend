@@ -20,6 +20,7 @@ aboutImageAlt: {
 type: String,
 default: 'About image'
 }
+  })
 </script>
 
 <template>
