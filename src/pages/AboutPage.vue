@@ -44,7 +44,7 @@ const prizeIMGs = ref([
       <!-- RIGHT IMAGE -->
       <div class="flex justify-center md:justify-end">
         <img
-        :src="https://res.cloudinary.com/dzx6dedea/image/upload/v1765446460/banner_bmt6e9.jpg"
+        :src="https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/first_c3gjan.jpg"
         alt="About Image"
         class="w-full max-w-md h-[25em] object-cover rounded-xl shadow-lg"
         />
