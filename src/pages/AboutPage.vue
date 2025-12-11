@@ -69,12 +69,6 @@ const prizeIMGs = ref([
                drop-shadow-2xl"
       />
     </div>
-
-    <!-- Decorative badge -->
-    <div class="absolute -bottom-4 -left-4 bg-amber-600 text-white px-6 py-3 
-                  rounded-full text-sm font-bold shadow-lg font-shan">
-      တႆးၵူၼ်း
-    </div>
   </div>
 </div>
   </div>
