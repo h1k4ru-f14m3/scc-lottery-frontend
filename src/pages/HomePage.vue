@@ -61,6 +61,14 @@ function handleInput(val) {
 <template>
   <!-- <p>{{ root_response }}</p> -->
 
+  <div class="flex justify-center md:justify-end">
+        <img
+        :src="https://res.cloudinary.com/dzx6dedea/image/upload/v1765446460/banner_bmt6e9.jpg"
+        alt="About Image"
+        class="w-full max-w-md h-[25em] object-cover rounded-xl shadow-lg"
+        />
+      </div>
+
   <div
     v-if="root_response.user_session.id"
     class="flex flex-col items-center justify-center pt-[5em]"
