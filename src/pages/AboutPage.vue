@@ -20,6 +20,7 @@ const prizeIMGs = ref([
       </textarea>
     </div>
 
+    <h1 class="text-[3em] font-black text-shadow-md font-shan">Prizes</h1>
     <section class="w-full p-5">
   <h2 class="sr-only">Prizes</h2>
 
