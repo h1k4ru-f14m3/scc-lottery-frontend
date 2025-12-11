@@ -20,13 +20,35 @@ const prizeIMGs = ref([
       </textarea>
     </div>
 
-    <h1 class="text-[3em] font-black text-shadow-md font-shan">Prizes</h1>
-    <section class="flex flex-row w-full items-center gap-2 p-5">
-      <div class="bg-primary w-[42em] h-[25em] rounded-lg" v-for="item in prizeIMGs">
-        <img :src="item[1]" :alt="item[0]" class="w-full h-full object-cover rounded-lg border-4 border-primary"></img>
-        <p class="w-full text-center mt-3">{{ item[0] }}</p>
+    <section class="w-full p-5">
+  <h2 class="sr-only">Prizes</h2>
+
+  <!-- responsive grid: 1 col mobile, 2 col small, 3 col lg -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-start">
+    <figure
+      v-for="(item, idx) in prizeIMGs"
+      :key="idx"
+      class="bg-white rounded-lg overflow-hidden shadow-sm flex flex-col"
+      role="group"
+      aria-label="prize card"
+    >
+      <!-- image area: responsive height, object-cover keeps center crop -->
+      <div class="w-full h-48 sm:h-56 md:h-64 overflow-hidden">
+        <img
+          :src="item[1]"
+          :alt="item[0]"
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
       </div>
-    </section>
+
+      <!-- caption -->
+      <figcaption class="px-4 py-3 text-center">
+        <p class="text-lg font-semibold">{{ item[0] }}</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
 
     <!-- <h1 class="text-[3em] font-black text-shadow-md mb-3 self-center">Agents</h1> -->
      <agents-list></agents-list>
