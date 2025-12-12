@@ -59,7 +59,7 @@ async function handleImage(event) {
             <h1>ပေႃးၸၢႆႇငိုၼ်းထႆးၸိုင် ၼိူင်ႈဝႂ် 270 ဝၢတ်ႇ</h1>
             <TabList class="tabs tabs-box m-5 mt-3">
                 <Tab class="tab focus:outline-none">KPay</Tab>
-                <Tab class="tab focus:outline-none">Pay2</Tab>
+                <Tab class="tab focus:outline-none">Pay with Thai Baht</Tab>
             </TabList>
 
             <TabPanels>
