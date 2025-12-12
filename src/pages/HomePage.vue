@@ -60,6 +60,13 @@ function handleInput(val) {
 
 <template>
   <!-- <p>{{ root_response }}</p> -->
+<div class="w-full h-[40vh] md:h-[60vh] lg:h-[70vh]">
+  <img
+    src="https://res.cloudinary.com/dzx6dedea/image/upload/v1765446460/banner_bmt6e9.jpg"
+    alt="Banner"
+    class="w-full h-full object-cover"
+  >
+</div>
 
   <div
     v-if="root_response.user_session.id"
