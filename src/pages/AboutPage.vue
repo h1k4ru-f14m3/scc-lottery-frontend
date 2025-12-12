@@ -19,13 +19,13 @@ const prizeIMGs = ref([
     <div class="space-y-8 order-2 lg:order-1">
       <!-- Main Title -->
       <div class="space-y-4">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-transparent bg-clip-text 
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text 
                      bg-gradient-to-r from-amber-900 to-orange-700 leading-tight
                      drop-shadow-lg animate-fade-in">
           ယိူင်းဢၢၼ်း ဝႂ်သုၼ်ႇလီ
         </h1>
         
-        <h2 class="text-2xl md:text-3xl font-shan text-amber-900/90 leading-snug
+        <h2 class="text-xl md:text-2xl font-shan text-amber-900/90 leading-snug
                      drop-shadow-md animate-fade-in-delay">
           တႃႇတေမေႇသၢင်ႈ ၵၢၼ်ပၢႆးပၺ်ႇၺႃႇၸိူဝ်ႉၶိူဝ်းတႆး
         </h2>
@@ -39,7 +39,7 @@ const prizeIMGs = ref([
         <div class="relative bg-white/90 backdrop-blur-md border border-amber-200 
                       rounded-2xl p-8 shadow-xl">
           <p class="text-lg md:text-xl leading-relaxed text-amber-950 font-shan text-justify">
-            ၼႂ်းၵၢၼ်သၢင်ႈပၢႆးပၺ်ႇၺႃႇၸိူဝ်ႉၶိူဝ်းတႆးၼႆႉ ႁႅင်းငဝ်ႈတိုၼ်းတႃႇပွင်ၵၢၼ်မၼ်း<br>
+            ၼႂ်းၵၢၼ်သၢင်ႈပၢႆးပၺ်ႇၺႃႇၸိူဝ်ႉၶိူဝ်းတႆးၼႆႉ ႁႅင်းငဝ်ႈတိုၼ်းတႃႇပွင်ၵၢၼ်မၼ်း
             တေၸႂ်ယႂ်ႇ ၸဝ်ႈတႃႇၼႃႉၽူႈလူႇတၢၼ်း ၵေႃႈဢမ်ႇယိုၼ်းယၢဝ်း။ တေၸႂ်ယႂ်ႇဢဵၼ်ႁႅင်း ၵႃႊႁဵၼ်းတီႈပေႃႈမႄႈ လုၵ်ႈႁဵၼ်းၵေႃႈ သမ်ႉၺႃးၶၢဝ်းၽွင်းတႆးတူၵ်းၵိၼ်းၼႆလႄႈ ၵေႃတႆး ၸင်ႇၶူင်ႊဝူၼ်ႉ လၢႆးႁူမ်ႈတိုၼ်း ဢၼ်မီးတၢင်းမုင်ႇမွင်း ၽွၼ်းလႆႈၶိုၼ်းၼၼ်ႉယူႇဢေႃႈ။ ၵၢၼ်ႁူမ်ႈတိုၼ်း ဢၼ်မီးတၢင်းမုင်ႈမွင်းၽွၼ်းလႆႈၶိုၼ်းၼၼ်ႉ ပဵၼ်ၵၢၼ်ဢၼ်ၵူႊၵေႃႉ တေၸူမ်းသိူဝ်း ႁူမ်ႈသၢင်ႈပႃးၸွမ်းၼႆၼၼ်ႉယဝ်ႉၶႃႈ။
           </p>
         </div>
