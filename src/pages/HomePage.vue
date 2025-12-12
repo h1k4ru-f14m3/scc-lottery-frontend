@@ -60,16 +60,6 @@ function handleInput(val) {
 
 <template>
   <!-- <p>{{ root_response }}</p> -->
-<div class="relative w-full aspect-[16/9] md:aspect-[21/10] lg:aspect-[24/10] overflow-hidden">
-  <img
-    src="https://res.cloudinary.com/dzx6dedea/image/upload/v1765446460/banner_bmt6e9.jpg"
-    alt="Modern living room with natural light and minimalist furniture"
-    class="absolute inset-0 w-full h-full object-cover"
-  />
-  <!-- Optional dark overlay for future text/content -->
-  <div class="absolute inset-0 bg-black/20"></div>
-</div>
-
   <div
     v-if="root_response.user_session.id"
     class="flex flex-col items-center justify-center pt-[5em]"
