@@ -66,6 +66,7 @@ async function handleImage(event) {
                     <img src="/src/assets/qr_codes/qr_code_placeholder.png" alt="QRcode 1"></img>
                 </TabPanel>
                 <TabPanel>
+                    <h3>ပေႃးၸၢႆႇငိုၼ်းထႆးၸိုင် ၼိူင်ႈဝႂ် 270 ဝၢတ်ႇ</h1>
                     <img src="/src/assets/qr_codes/qr_code_placeholder_2.png" alt="QRcode 2"></img>
                 </TabPanel>
             </TabPanels>
