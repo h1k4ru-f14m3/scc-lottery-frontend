@@ -56,7 +56,7 @@ async function handleImage(event) {
     <TabGroup v-if="props.show">
         <div class="flex flex-col w-full items-center">
             <h1 class="m-5 mb-0">Payment Methods</h1>
-            <h3>ပေႃးၸၢႆႇငိုၼ်းထႆးၸိုင် ၼိူင်ႈဝႂ် 270 ဝၢတ်ႇ</h1>
+            <h1>ပေႃးၸၢႆႇငိုၼ်းထႆးၸိုင် ၼိူင်ႈဝႂ် 270 ဝၢတ်ႇ</h1>
             <TabList class="tabs tabs-box m-5 mt-3">
                 <Tab class="tab focus:outline-none">KPay</Tab>
                 <Tab class="tab focus:outline-none">Pay2</Tab>
