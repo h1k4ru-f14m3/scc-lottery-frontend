@@ -11,7 +11,7 @@ const prizeIMGs = ref([
 
 <template>
   <div class="pt-[5em] flex flex-row flex-wrap justify-center gap-5">
-    <h1 class="text-[3em] font-black text-shadow-md font-shan">ဝႂ်သုၼ်ႇလီ</h1>
+    <h1 class="text-[3em] font-black text-shadow-md font-shan">ဝႂ်သုၼ်ႇလီ ဝၼ်းၵေႃႇတင်ႈမုၵ်ႉၸုမ်း"ၵေႃတႆး" 27 ပီႊတဵမ်</h1>
    <section class="w-full min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 py-12 px-5 md:py-20">
   <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
     
