@@ -6,6 +6,7 @@ import setRole from './setRole.vue'
 import { ref, onMounted } from 'vue'
 import { getData, formSubmit } from '@/helpers'
 import addUsers from './modals/users/addUsers.vue'
+import editUser from './modals/users/editUser.vue'
 
 const modalBtnProps = {
   'button-title': 'Edit User',
@@ -120,7 +121,7 @@ async function handleAddUser(data) {
       :use_extra_components="true"
       :extra_component="[
         {
-          component: setRole,
+          component: editUser,
           props: {
             onSubmitRole: handleSetRole,
           },

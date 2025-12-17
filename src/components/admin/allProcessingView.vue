@@ -12,6 +12,12 @@ const confirmBtnProps = {
   'bg-color': 'btn btn-warning shadow-md h-[1.5em] m-0',
 }
 
+const cancelBtnProps = {
+  'button-title': 'Cancel',
+  'route-to-run': '/order/cancel',
+  'bg-color': 'btn btn-warning shadow-md h-[1.5em] m-0',
+}
+
 const imgBtnProps = {
   'button-title': 'Image',
   'bg-color': 'btn btn-warning shadow-md h-[1.5em] m-0',
@@ -68,6 +74,12 @@ async function toggleModal(extraData) {
         {
           component: simpleButton,
           props: confirmBtnProps,
+          key: 'code',
+          dataList: response.orders,
+        },
+        {
+          component: simpleButton,
+          props: cancelBtnProps,
           key: 'code',
           dataList: response.orders,
         },

@@ -16,7 +16,7 @@ onMounted(async () => {
 const deleteBtnProps = {
   'button-title': 'Delete',
   'bg-color': 'btn btn-warning shadow-md h-[1.5em] m-0',
-  onClickExtra: testrun,
+  onClickExtra: delete_ticket,
 }
 
 const editBtnProps = {
@@ -54,15 +54,28 @@ const add_ticket_res = ref(null)
 async function handleAddTicket(data) {
   let res = await api.post('/tickets/add_ticket', data)
   const resultData = res.data
+  // console.log('Looks Fine I think: ', resultData)
 
   if (resultData.success) {
     toggleModal()
-    await getData('/tickets/', response, 0, filter.value, 'status')
+    await getData('/tickets/', response, 0, data['code'], 'code')
+    filter.value = 'N/A'
   } else {
     response.value = resultData.message
     setTimeout(() => {
       response.value = null
     }, 2000)
+  }
+}
+
+async function delete_ticket(data) {
+  let res = await api.post('/tickets/del_ticket', { code: data[0] })
+  const resultData = res.data
+
+  console.log('RES DATA: ', resultData)
+
+  if (resultData.success) {
+    await getData('/tickets/', response, 0, filter.value, 'status')
   }
 }
 </script>
