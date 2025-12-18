@@ -5,6 +5,11 @@ import simpleModal from '../general_components/simpleModal.vue'
 import { ref, onMounted } from 'vue'
 import { getData } from '@/helpers'
 import api from '@/api'
+import pagination from '../general_components/pagination.vue'
+
+const props = defineProps({
+  limit: Number,
+})
 
 const imgBtnProps = {
   'button-title': 'Image',
@@ -16,6 +21,9 @@ const response = ref({ orders: [], img_data: [] })
 onMounted(async () => {
   await getData('/order/load_all', response)
 })
+const handlePageChange = async (data) => {
+  await getData('/order/load_all', response, data)
+}
 
 const showModal = ref(false)
 const img_to_show = ref(null)
@@ -53,6 +61,15 @@ async function toggleModal(extraData) {
         },
       ]"
     ></simpleTable>
+
+    <div class="m-3 flex flex-row items-center justify-center">
+      <pagination
+        @page-change="handlePageChange"
+        :limit="limit"
+        :disable-next="response.orders.length !== props.limit"
+      ></pagination>
+    </div>
+
     <simpleModal
       modal-title="Verfication Image"
       :img_view="true"

@@ -2,16 +2,38 @@
 import simpleTable from '../general_components/simpleTable.vue'
 import simpleButton from '../general_components/simpleButton.vue'
 import simpleModal from '../general_components/simpleModal.vue'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed, watch } from 'vue'
 import { getData } from '@/helpers'
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/vue'
 import api from '@/api'
 import AddTickets from './modals/tickets/addTickets.vue'
+import pagination from '../general_components/pagination.vue'
+import search from '../general_components/search.vue'
 
+const props = defineProps({
+  limit: Number,
+})
+
+const offset = ref(null)
+const query = ref(null)
 const response = ref({ data: [] })
 onMounted(async () => {
   await getData('/tickets/', response)
 })
+const handlePageChange = async (data) => {
+  offset.value = data
+  await getData('/tickets/', response, data, query.value, query.value ? 'code' : null)
+}
+const handleSearch = async (data) => {
+  query.value = data
+  console.log('QUERY: ', data)
+
+  if (!data) {
+    await getData('/tickets/', response)
+    return
+  }
+  await getData('/tickets/', response, offset.value, data, 'code')
+}
 
 const deleteBtnProps = {
   'button-title': 'Delete',
@@ -98,38 +120,41 @@ async function delete_ticket(data) {
     ></simpleModal>
 
     <!-- THE TOP BAR WITH THE BUTTONS FOR FILTER AND ADD -->
-    <div class="flex w-full justify-center fixed bg-base-100 z-10 p-3">
-      <!-- FILTER SELECTION -->
-      <Listbox v-model="filter">
-        <ListboxButton>
-          <simpleButton bg-color="btn btn-primary" :button-title="filter"> </simpleButton>
-        </ListboxButton>
-        <ListboxOptions class="menu bg-base-100 rounded-md z-20 shadow-md fixed">
-          <ListboxOption
-            v-for="filter_item in filter_options"
-            :key="filter_item"
-            :value="filter_item"
-            ><simpleButton
-              bg-color="btn btn-primary"
-              :button-title="filter_item"
-              :extra-data="filter_item"
-              @click-extra="fetch_filter"
-            >
-            </simpleButton
-          ></ListboxOption>
-        </ListboxOptions>
-      </Listbox>
+    <div class="flex flex-col w-full justify-center fixed bg-base-100 z-10 p-3">
+      <search @got-input="handleSearch" placeholder="Ticket Code: "></search>
+      <div class="flex flex-row items-center justify-center">
+        <!-- FILTER SELECTION -->
+        <Listbox v-model="filter">
+          <ListboxButton>
+            <simpleButton bg-color="btn btn-primary" :button-title="filter"> </simpleButton>
+          </ListboxButton>
+          <ListboxOptions class="menu bg-base-100 rounded-md z-20 shadow-md fixed">
+            <ListboxOption
+              v-for="filter_item in filter_options"
+              :key="filter_item"
+              :value="filter_item"
+              ><simpleButton
+                bg-color="btn btn-primary"
+                :button-title="filter_item"
+                :extra-data="filter_item"
+                @click-extra="fetch_filter"
+              >
+              </simpleButton
+            ></ListboxOption>
+          </ListboxOptions>
+        </Listbox>
 
-      <!-- ADD TICKETS -->
-      <simpleButton
-        bg-color="btn btn-primary"
-        button-title="Add Tickets"
-        @click-extra="toggleModal"
-      ></simpleButton>
+        <!-- ADD TICKETS -->
+        <simpleButton
+          bg-color="btn btn-primary"
+          button-title="Add Tickets"
+          @click-extra="toggleModal"
+        ></simpleButton>
+      </div>
     </div>
 
     <!-- DATA TABLE -->
-    <div class="pt-[5em]">
+    <div class="pt-[10em]">
       <simpleTable
         :disable_func="disableBTNs"
         :theads="['Ticket Code', 'Buyer Name', 'Note For', 'Status', 'Expire At', 'Edit', 'Delete']"
@@ -150,6 +175,14 @@ async function delete_ticket(data) {
           },
         ]"
       ></simpleTable>
+    </div>
+
+    <div class="m-3 flex flex-row items-center justify-center">
+      <pagination
+        @page-change="handlePageChange"
+        :limit="limit"
+        :disable-next="response.data.length !== props.limit"
+      ></pagination>
     </div>
   </div>
 </template>

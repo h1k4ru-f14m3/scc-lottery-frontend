@@ -43,13 +43,11 @@ const props = defineProps({
   <table class="table border-2 border-base-200 rounded-md" :class="props.extraClasses">
     <thead>
       <tr>
-        <th>No.</th>
         <th v-for="header in props.theads">{{ header }}</th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="(item, index) in props.trows">
-        <td>{{ index + 1 }}</td>
         <td v-for="(data, i) in item" :key="data + '-' + i">
           {{ i === props.code_id_index ? String(data).padStart(5, '0') : data }}
         </td>

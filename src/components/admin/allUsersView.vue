@@ -7,6 +7,12 @@ import { ref, onMounted } from 'vue'
 import { getData, formSubmit } from '@/helpers'
 import addUsers from './modals/users/addUsers.vue'
 import editUser from './modals/users/editUser.vue'
+import pagination from '../general_components/pagination.vue'
+import search from '../general_components/search.vue'
+
+const props = defineProps({
+  limit: Number,
+})
 
 const modalBtnProps = {
   'button-title': 'Edit User',
@@ -20,7 +26,22 @@ const res_message = ref()
 async function handleEdit() {
   toggleEditModal('0')
   await getData('/user/', response)
-  console.log('REFRESHED!')
+}
+
+const offset = ref(null)
+const query = ref(null)
+const handlePageChange = async (data) => {
+  await getData('/user/', response, data, query.value, query.value ? 'name' : null)
+}
+const handleSearch = async (data) => {
+  query.value = data
+  console.log('QUERY: ', data)
+
+  if (!data) {
+    await getData('/user/', response)
+    return
+  }
+  await getData('/user/', response, offset.value, data, 'name')
 }
 
 const response = ref({ data: [], personal_info: [] })
@@ -71,7 +92,7 @@ async function handleAddUser(data) {
 
 <template>
   <div>
-    <div class="flex w-full justify-center fixed bg-base-100 z-10 p-3">
+    <div class="flex flex-col w-full justify-center fixed bg-base-100 z-10 p-3">
       <simpleModal
         :show-modal="showAddModal"
         @close-modal="toggleAddModal"
@@ -87,17 +108,22 @@ async function handleAddUser(data) {
         ]"
       ></simpleModal>
 
-      <simpleButton
-        bg-color="btn btn-primary"
-        button-title="Add Users"
-        @click-extra="toggleAddModal"
-      ></simpleButton>
-    </div>
+      <div>
+        <search @got-input="handleSearch" placeholder="Name: "></search>
+      </div>
 
+      <div class="flex justify-center">
+        <simpleButton
+          bg-color="btn btn-primary"
+          button-title="Add Users"
+          @click-extra="toggleAddModal"
+        ></simpleButton>
+      </div>
+    </div>
     <!-- DATA TABLE -->
-    <div class="pt-[5em]">
+    <div class="pt-[10em]">
       <simpleTable
-        :theads="['User ID', 'Name', 'Role', 'Actions']"
+        :theads="['User ID', 'Name', 'Role', 'Phone Number', 'Address', 'Actions']"
         :trows="response.data"
         :use_extra_components="true"
         :extra_components="[
@@ -109,6 +135,14 @@ async function handleAddUser(data) {
           },
         ]"
       ></simpleTable>
+    </div>
+
+    <div class="m-3 flex flex-row items-center justify-center">
+      <pagination
+        @page-change="handlePageChange"
+        :disable-next="response.data.length !== props.limit"
+        :limit="limit"
+      ></pagination>
     </div>
 
     <simpleModal

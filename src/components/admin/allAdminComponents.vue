@@ -4,6 +4,8 @@ import allOrdersView from './allProcessingView.vue'
 import allUsersView from './allUsersView.vue'
 import allOrderRecords from './allOrderRecords.vue'
 import allTickets from './allTickets.vue'
+
+const limit = 15
 </script>
 
 <template>
@@ -18,16 +20,16 @@ import allTickets from './allTickets.vue'
     </div>
     <TabPanels class="md:w-[98vw] md:h-[75vh] overflow-auto">
       <TabPanel :key="tickets">
-        <allTickets class="w-[98vw] h-[75vh]"></allTickets>
+        <allTickets class="w-[98vw] h-[75vh]" :limit="limit"></allTickets>
       </TabPanel>
       <TabPanel :key="records">
-        <allOrderRecords class="w-[98vw] h-[75vh]"></allOrderRecords>
+        <allOrderRecords class="w-[98vw] h-[75vh]" :limit="limit"></allOrderRecords>
       </TabPanel>
       <TabPanel :key="processing">
-        <allOrdersView class="w-[98vw] h-[75vh]"></allOrdersView>
+        <allOrdersView class="w-[98vw] h-[75vh]" :limit="limit"></allOrdersView>
       </TabPanel>
       <TabPanel :key="users">
-        <allUsersView class="w-[98vw] h-[75vh]"></allUsersView>
+        <allUsersView class="w-[98vw] h-[75vh]" :limit="limit"></allUsersView>
       </TabPanel>
     </TabPanels>
   </TabGroup>
