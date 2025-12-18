@@ -17,14 +17,10 @@ const modalBtnProps = {
 // Prepare Form Div
 const res_message = ref()
 
-async function handleSetRole(val) {
-  console.log('This is the role data: ', val)
-  await formSubmit(val, res_message, '/user/set_role', false, false)
-
-  if (res_message.value) {
-    toggleEditModal(val)
-    await getData('/user/', response)
-  }
+async function handleEdit() {
+  toggleEditModal('0')
+  await getData('/user/', response)
+  console.log('REFRESHED!')
 }
 
 const response = ref({ data: [], personal_info: [] })
@@ -123,7 +119,7 @@ async function handleAddUser(data) {
         {
           component: editUser,
           props: {
-            onSubmitRole: handleSetRole,
+            onSubmitEdit: handleEdit,
           },
           key: 'id',
           dataList: [id_to_edit],

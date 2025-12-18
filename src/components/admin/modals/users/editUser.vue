@@ -3,7 +3,7 @@ import { reactive, ref, onMounted } from 'vue'
 import imageCompression from 'browser-image-compression';
 import api from '@/api';
 import simpleButton from '@/components/general_components/simpleButton.vue';
-import { all } from 'axios';
+import { vAutoAnimate } from '@formkit/auto-animate';
 
 const props = defineProps({
   id: [Number, String],
@@ -85,8 +85,14 @@ onMounted(() => {
 })
 
 
+const showMessage = ref(false)
+const message = ref(null)
+const messageSuccess = ref(false)
+const fetching = ref(false)
+
 async function handleSubmit() {
-    const allData = {...textData, ...roleData, ...pfpData}
+    fetching.value = true
+    const allData = {...textData, ...roleData, ...pfpData, id: props.id}
     for (const key in allData) {
         if (!allData[key]) {
             console.log('NEED TO DELETE THIS KEY: ', key)
@@ -96,6 +102,22 @@ async function handleSubmit() {
         }
     }
     console.log('ALL_DATA: ', allData)
+
+    const res = await api.post('/user/edit_user', allData)
+    const res_data = res.data
+    console.log('RES: ', res_data)
+
+    showMessage.value = true
+    message.value = res_data.message
+    messageSuccess.value = res_data.success
+
+    setTimeout(() => {
+        showMessage.value = false
+        message.value = null
+        messageSuccess.value = res_data.success
+        emits('submitEdit', true)
+        fetching.value = false
+    }, 2000)
 }
 
 
@@ -103,11 +125,18 @@ async function handleSubmit() {
 </script>
 
 <template>
-  <div class="flex flex-col items-center justify-center">
-
+  <div class="flex flex-col items-center justify-center" v-auto-animate>
     <div class="flex flex-row items-center justify-center">
         <img v-if="pfpData.pfp" :src="pfpData.pfp" class="w-12 h-12 rounded-full m-3"></img>
         <h1 class="text-[2em] font-black self-center text-shadow-md mb-3">Edit User: {{ props.id }} </h1>    
+    </div>
+
+    <div class="alert mb-2 self-center" :class="messageSuccess ? 'alert-success' : 'alert-error'" v-if="showMessage">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 shrink-0 stroke-current" fill="none" viewBox="0 0 24 24">
+            <path v-if="!messageSuccess" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <path v-else stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        <span class="text-md font-bold">{{ message }}</span>
     </div>
     
 
@@ -126,6 +155,6 @@ async function handleSubmit() {
       <option value="user">User</option>
     </select>
 
-    <simpleButton button-title="Edit User" bg-color="btn btn-primary mt-3" @click="handleSubmit"></simpleButton>
+    <simpleButton button-title="Edit User" bg-color="btn btn-primary mt-3" @click="handleSubmit" :loading="fetching"></simpleButton>
   </div>
 </template>
