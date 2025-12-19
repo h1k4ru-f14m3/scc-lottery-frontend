@@ -18,6 +18,15 @@ const emits = defineEmits(['pageChange'])
 const page_num = ref(1)
 const offset = computed(() => (page_num.value - 1) * props.limit)
 
+watch(
+  () => props.reset,
+  (newVal) => {
+    if (newVal) {
+      page_num.value = 1
+    }
+  },
+)
+
 watch(page_num, () => {
   emits('pageChange', offset.value)
 })

@@ -2,7 +2,7 @@
 import simpleTable from '../general_components/simpleTable.vue'
 import simpleButton from '../general_components/simpleButton.vue'
 import simpleModal from '../general_components/simpleModal.vue'
-import { ref, onMounted, computed, watch } from 'vue'
+import { ref, onMounted, computed, watch, nextTick } from 'vue'
 import { getData } from '@/helpers'
 import { Listbox, ListboxButton, ListboxOption, ListboxOptions } from '@headlessui/vue'
 import api from '@/api'
@@ -14,19 +14,26 @@ const props = defineProps({
   limit: Number,
 })
 
-const offset = ref(null)
-const query = ref(null)
 const response = ref({ data: [] })
 onMounted(async () => {
   await getData('/tickets/', response)
 })
+
+const offset = ref(null)
+const query = ref(null)
 const handlePageChange = async (data) => {
   offset.value = data
   await getData('/tickets/', response, data, query.value, query.value ? 'code' : null)
 }
+
+const resetPage = ref(false)
 const handleSearch = async (data) => {
   query.value = data
   console.log('QUERY: ', data)
+
+  resetPage.value = true
+  await nextTick()
+  resetPage.value = false
 
   if (!data) {
     await getData('/tickets/', response)
@@ -41,15 +48,15 @@ const deleteBtnProps = {
   onClickExtra: delete_ticket,
 }
 
-const editBtnProps = {
-  'button-title': 'Edit',
-  'bg-color': 'btn btn-warning shadow-md h-[1.5em] m-0',
-  onClickExtra: testrun,
-}
+// const editBtnProps = {
+//   'button-title': 'Edit',
+//   'bg-color': 'btn btn-warning shadow-md h-[1.5em] m-0',
+//   onClickExtra: testrun,
+// }
 
-async function testrun() {
-  await getData('/tickets/', response, 0, 'confirmed', 'status')
-}
+// async function testrun() {
+//   await getData('/tickets/', response, 0, 'confirmed', 'status')
+// }
 
 function disableBTNs(row) {
   //   console.log(row)
@@ -157,16 +164,16 @@ async function delete_ticket(data) {
     <div class="pt-[10em]">
       <simpleTable
         :disable_func="disableBTNs"
-        :theads="['Ticket Code', 'Buyer Name', 'Note For', 'Status', 'Expire At', 'Edit', 'Delete']"
+        :theads="['Ticket Code', 'Buyer Name', 'Note For', 'Status', 'Expire At', 'Delete']"
         :trows="response.data"
         :use_extra_components="true"
         :extra_components="[
-          {
-            component: simpleButton,
-            props: editBtnProps,
-            key: 'extraData',
-            dataList: response.data,
-          },
+          // {
+          //   component: simpleButton,
+          //   props: editBtnProps,
+          //   key: 'extraData',
+          //   dataList: response.data,
+          // },
           {
             component: simpleButton,
             props: deleteBtnProps,
@@ -182,6 +189,7 @@ async function delete_ticket(data) {
         @page-change="handlePageChange"
         :limit="limit"
         :disable-next="response.data.length !== props.limit"
+        :reset="resetPage"
       ></pagination>
     </div>
   </div>

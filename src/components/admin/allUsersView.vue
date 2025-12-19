@@ -9,6 +9,7 @@ import addUsers from './modals/users/addUsers.vue'
 import editUser from './modals/users/editUser.vue'
 import pagination from '../general_components/pagination.vue'
 import search from '../general_components/search.vue'
+import { nextTick } from 'vue'
 
 const props = defineProps({
   limit: Number,
@@ -30,12 +31,17 @@ async function handleEdit() {
 
 const offset = ref(null)
 const query = ref(null)
+const resetPage = ref(false)
 const handlePageChange = async (data) => {
   await getData('/user/', response, data, query.value, query.value ? 'name' : null)
 }
 const handleSearch = async (data) => {
   query.value = data
   console.log('QUERY: ', data)
+
+  resetPage.value = true
+  await nextTick()
+  resetPage.value = false
 
   if (!data) {
     await getData('/user/', response)
@@ -142,6 +148,7 @@ async function handleAddUser(data) {
         @page-change="handlePageChange"
         :disable-next="response.data.length !== props.limit"
         :limit="limit"
+        :reset="resetPage"
       ></pagination>
     </div>
 
