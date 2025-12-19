@@ -2,10 +2,11 @@
 import simpleTable from '../general_components/simpleTable.vue'
 import simpleButton from '../general_components/simpleButton.vue'
 import simpleModal from '../general_components/simpleModal.vue'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, reactive, nextTick, computed } from 'vue'
 import { getData } from '@/helpers'
 import api from '@/api'
 import pagination from '../general_components/pagination.vue'
+import search from '../general_components/search.vue'
 
 const props = defineProps({
   limit: Number,
@@ -33,8 +34,38 @@ const response = ref({ orders: [], img_data: [] })
 onMounted(async () => {
   await getData('/order/', response)
 })
+
+const search_filter_options = ['name', 'o.tickets_bought']
+const search_filter = reactive({ filter: search_filter_options[0] })
+const search_placeholder = computed(() => {
+  if (search_filter.filter === search_filter_options[0]) {
+    return 'Name: '
+  } else if (search_filter.filter === search_filter_options[1]) {
+    return 'Ticket Code: '
+  }
+})
+
+const offset = ref(null)
+const query = ref(null)
 const handlePageChange = async (data) => {
-  await getData('/order/load_all', response, data)
+  offset.value = data
+  await getData('/order/', response, data, query.value, query.value ? search_filter.filter : null)
+}
+
+const resetPage = ref(false)
+const handleSearch = async (data) => {
+  query.value = data
+  console.log('QUERY: ', data)
+
+  resetPage.value = true
+  await nextTick()
+  resetPage.value = false
+
+  if (!data) {
+    await getData('/order/', response)
+    return
+  }
+  await getData('/order/', response, offset.value, data, search_filter.filter)
 }
 
 const showModal = ref(false)
@@ -60,6 +91,18 @@ async function toggleModal(extraData) {
 
 <template>
   <div>
+    <div class="join m-3 flex justify-center">
+      <search
+        @got-input="handleSearch"
+        :placeholder="search_placeholder"
+        :join-item="true"
+      ></search>
+
+      <select class="select join-item w-5" v-model="search_filter.filter" name="filter">
+        <option :value="search_filter_options[0]">Name</option>
+        <option :value="search_filter_options[1]">Ticket Code</option>
+      </select>
+    </div>
     <simpleTable
       :theads="[
         'Order ID',
