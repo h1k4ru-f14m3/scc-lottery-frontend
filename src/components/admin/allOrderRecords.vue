@@ -117,6 +117,7 @@ async function toggleModal(extraData) {
         @page-change="handlePageChange"
         :limit="limit"
         :disable-next="response.orders.length !== props.limit"
+        :reset="resetPage"
       ></pagination>
     </div>
 
