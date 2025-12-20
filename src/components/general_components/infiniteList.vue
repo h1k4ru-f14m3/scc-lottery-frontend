@@ -43,6 +43,8 @@ watch(
       scrollContainer.value.scrollTop = 0
     }
 
+    await new Promise((resolve) => setTimeout(resolve, 500))
+
     if (!val) {
       await getData(props.routeToFetch, response, offset.value)
       hasMore.value = true
@@ -74,6 +76,7 @@ async function onLoadMore() {
   }
 
   console.log('NEW BATCH: ', newBatch)
+  await new Promise((resolve) => setTimeout(resolve, 500))
 
   if (newBatch?.data?.data?.length) {
     console.log('NEW BATCH 2: ', newBatch)
