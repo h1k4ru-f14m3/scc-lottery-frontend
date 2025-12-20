@@ -1,6 +1,10 @@
 <script setup>
 import simpleButton from '../general_components/simpleButton.vue'
 import hamburgerMenu from './hamburgerMenu.vue'
+import { getData } from '@/helpers'
+import { root_response } from '@/stores/tempSessions'
+
+getData('/', root_response)
 
 defineProps({
   sessionData: {
