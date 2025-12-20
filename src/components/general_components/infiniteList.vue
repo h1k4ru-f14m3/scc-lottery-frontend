@@ -23,6 +23,7 @@ const hasMore = ref(true)
 
 const isInitialLoading = ref(true)
 const isLoadingMore = ref(false)
+const isSearching = ref(false)
 
 onMounted(async () => {
   isInitialLoading.value = true
@@ -33,7 +34,8 @@ onMounted(async () => {
 watch(
   () => props.query,
   async (val) => {
-    isInitialLoading.value = true
+    isLoadingMore.value = true
+    isSearching.value = true
     console.log('GOT NEW SEARCH QUERY all: ', val)
     offset.value = 0
 
@@ -53,7 +55,8 @@ watch(
       hasMore.value = false
     }
 
-    isInitialLoading.value = false
+    isLoadingMore.value = false
+    isSearching.value = false
   },
 )
 
@@ -94,7 +97,10 @@ async function onLoadMore() {
     </div>
 
     <div v-else>
-      <div class="flex flex-wrap gap-2 justify-center items-center">
+      <div
+        class="flex flex-wrap gap-2 justify-center items-center transition-opacity duration-300"
+        :class="{ 'opacity-50 pointer-events-none': isSearching }"
+      >
         <component
           :is="props.componentToUse"
           v-for="item in response.data"
