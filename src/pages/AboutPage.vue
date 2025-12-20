@@ -109,6 +109,5 @@ const prizeIMGs = ref([
 
     <!-- <h1 class="text-[3em] font-black text-shadow-md mb-3 self-center">Agents</h1> -->
      <agents-list></agents-list>
-
   </div>
 </template>
