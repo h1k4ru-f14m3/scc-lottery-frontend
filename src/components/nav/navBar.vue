@@ -17,18 +17,24 @@ defineProps({
 </script>
 
 <template>
-  <div class="fixed flex w-full h-[4em] items-center backdrop-blur-lg shadow-md mb-10 z-10">
+  <div
+    class="fixed flex w-full h-[4em] items-center shadow-md mb-10 z-10 backdrop-blur-2xl bg-base-200/50"
+  >
     <div class="flex-1 justify-start p-3 hidden md:flex"></div>
 
     <!-- Home & About -->
     <div class="flex-1 justify-center hidden md:flex">
       <simpleButton
         button-title="Home"
+        bg-color="text-2xl font-bold m-3 transition text-shadow-lg"
+        :use-default="false"
         hover="ease-in-out hover:-translate-y-1 hover:scale-110"
         button-route="/"
       />
       <simpleButton
         button-title="Shop"
+        bg-color="text-2xl font-bold m-3 transition text-shadow-lg"
+        :use-default="false"
         hover="ease-in-out hover:-translate-y-1 hover:scale-110"
         button-route="/shop"
       />
