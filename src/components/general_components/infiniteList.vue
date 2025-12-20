@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { getData, search } from '@/helpers'
 import { vInfiniteScroll } from '@vueuse/components'
 
@@ -10,7 +10,9 @@ const props = defineProps({
     default: '',
   },
   componentToUse: Object,
+  skeletonComponent: Object,
   inheritClasses: String,
+  inheritLayout: String,
 })
 
 const scrollContainer = ref(null)
@@ -19,10 +21,19 @@ const offset = ref(0)
 const batchSize = 28
 const hasMore = ref(true)
 
-getData(props.routeToFetch, response)
+const isInitialLoading = ref(true)
+const isLoadingMore = ref(false)
+
+onMounted(async () => {
+  isInitialLoading.value = true
+  await getData(props.routeToFetch, response)
+  isInitialLoading.value = false
+})
+
 watch(
   () => props.query,
-  (val) => {
+  async (val) => {
+    isInitialLoading.value = true
     console.log('GOT NEW SEARCH QUERY all: ', val)
     offset.value = 0
 
@@ -31,19 +42,25 @@ watch(
     }
 
     if (!val) {
-      // console.log('NOTHING!')
-      getData(props.routeToFetch, response, offset.value)
+      await getData(props.routeToFetch, response, offset.value)
       hasMore.value = true
     } else if (val) {
-      // console.log('SOMETHING!')
-      search(props.routeToFetch, val, offset.value, response)
+      await search(props.routeToFetch, val, offset.value, response)
       hasMore.value = true
     }
+
+    if (response?.value?.data?.length < batchSize) {
+      hasMore.value = false
+    }
+
+    isInitialLoading.value = false
   },
 )
 
 async function onLoadMore() {
-  if (!hasMore.value) return
+  if (!hasMore.value || isLoadingMore.value) return
+
+  isLoadingMore.value = true
 
   offset.value += batchSize
   let newBatch
@@ -59,26 +76,36 @@ async function onLoadMore() {
     console.log('NEW BATCH 2: ', newBatch)
     response.value.data.push(...newBatch.data.data)
   } else {
-    hasMore.value = falseq
+    hasMore.value = false
   }
-}
 
-function testLoad() {
-  console.log('NEW CONTENT NEEDED!')
+  isLoadingMore.value = false
 }
 </script>
 
 <template>
   <div
-    ref="scrollContainer"
     :class="props.inheritClasses"
-    v-infinite-scroll="[onLoadMore, { distance: 10 }]"
+    ref="scrollContainer"
+    v-infinite-scroll="[onLoadMore, { distance: 100 }]"
   >
-    <component
-      :is="props.componentToUse"
-      v-for="item in response.data"
-      :key="item[0]"
-      :code="item[0]"
-    ></component>
+    <div v-if="isInitialLoading" class="flex flex-wrap gap-2 justify-center items-center">
+      <component :is="props.skeletonComponent" v-for="n in 8" :key="n"></component>
+    </div>
+
+    <div v-else>
+      <div class="flex flex-wrap gap-2 justify-center items-center">
+        <component
+          :is="props.componentToUse"
+          v-for="item in response.data"
+          :key="item[0]"
+          :code="item[0]"
+        ></component>
+      </div>
+
+      <div class="flex flex-wrap gap-2 justify-center items-center" v-if="isLoadingMore && hasMore">
+        <component :is="props.skeletonComponent" v-for="n in 8" :key="n"></component>
+      </div>
+    </div>
   </div>
 </template>
