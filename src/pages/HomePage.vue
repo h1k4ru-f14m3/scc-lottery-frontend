@@ -35,14 +35,6 @@ const handleShowPayment = (val) => {
   showPayment.value = val
 }
 
-watch(
-  () => root_response.value,
-  (newVal) => {
-    console.log('Hello!')
-    console.log('Root Response: ', newVal)
-  },
-)
-
 const queryToSearch = ref('')
 function handleInput(val) {
   queryToSearch.value = val

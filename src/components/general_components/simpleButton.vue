@@ -3,6 +3,9 @@ import { RouterLink } from 'vue-router'
 import { computed, ref, defineEmits } from 'vue'
 import api from '@/api'
 import { showModal } from '@/helpers'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 const emits = defineEmits(['clickExtra'])
 
@@ -26,9 +29,12 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-})
 
-console.log('DISABLED: ', props.disableBTN)
+  redirectOnFail: {
+    type: String,
+    default: '',
+  },
+})
 
 const loading = ref(false)
 const added = ref(false)
@@ -50,7 +56,12 @@ async function handleClick() {
   try {
     const response = (await api.post(props.routeToRun, { code: props.code })).data
     added.value = true
-    console.log(response)
+
+    if (!response.success && props.redirectOnFail) {
+      router.push(props.redirectOnFail)
+      return
+    }
+
     showModal.value = true
   } catch (err) {
     console.error(err)
