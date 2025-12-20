@@ -1,6 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 import agentsList from '@/components/agent/agentsList.vue';
+import CardsPreview from '@/components/general_components/cardsPreview.vue';
+import card from '@/components/general_components/card.vue';
 
 const prizeIMGs = ref([
   ['First Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/first_c3gjan.jpg'],
@@ -59,7 +61,6 @@ const prizeIMGs = ref([
     <!-- Soft glow background -->
     <div class="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 
                   rounded-3xl blur-3xl opacity-30 -z-10 scale-110"></div>
-
     <!-- Image Container – now fully responsive for landscape images -->
     <div class="w-full max-w-4xl">
       <img
@@ -74,9 +75,22 @@ const prizeIMGs = ref([
   </div>
 </div>
   </div>
+
+  <div class="mt-[3em]">
+    <CardsPreview 
+        :component-to-use="card"
+        route="/"
+        inherit-classes="flex flex-wrap gap-2 rounded-md p-4 tab-content md:max-w-[75vw] justify-center items-center"
+      ></CardsPreview>
+  </div>
+
+  <div class="flex justify-start">
+        <div class="h-1 w-32 bg-gradient-to-r from-amber-600 to-orange-500 rounded-full"></div>
+      </div>
+
 </section>
 
-    <h1 class="text-[3em] font-black text-shadow-md font-shan">Prizes</h1>
+    <h1 class="text-6xl font-black text-shadow-md">Prizes</h1>
     <section class="w-full p-5">
   <h2 class="sr-only">Prizes</h2>
 
