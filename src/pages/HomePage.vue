@@ -1,117 +1,113 @@
 <script setup>
-import { ref, watch } from 'vue'
-import cartView from '@/components/views/cartView.vue'
-import { getData } from '@/helpers'
-import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
-import allCards from '@/components/views/allCardsView.vue'
-import cartModal from '@/components/cart/cartModal.vue'
-import { currentTabIndex } from '@/stores/ui'
-import PaymentDiv from '@/components/form/paymentDiv.vue'
-import { bought_data, root_response } from '@/stores/tempSessions'
-import { formSubmit } from '@/helpers'
-import boughtView from '@/components/views/boughtView.vue'
-import { vAutoAnimate } from '@formkit/auto-animate'
-import search from '@/components/general_components/search.vue'
+import { ref } from 'vue';
+import agentsList from '@/components/agent/agentsList.vue';
 
-// const user_session = ref(null)
-
-// watch(response, (newVal) => {
-//   //   console.log(response.value.user_session)
-// })
-
-const message_res = ref()
-
-getData('/', root_response)
-getData('/bought_data', bought_data)
-
-const handleConfirmCart = async (data) => {
-  await formSubmit(data, message_res, '/cart/confirm', true)
-  currentTabIndex.value = 0
-  console.log(message_res)
-}
-
-const showPayment = ref(false)
-const handleShowPayment = (val) => {
-  showPayment.value = val
-}
-
-const queryToSearch = ref('')
-function handleInput(val) {
-  queryToSearch.value = val
-}
-
-// watch(
-//   () => currentTabIndex.value,
-//   async (newVal) => {
-//     if (newVal === 1) {
-//       await getData('/bought_data', bought_data)
-//     }
-//   },
-// )
+const prizeIMGs = ref([
+  ['First Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/first_c3gjan.jpg'],
+  ['Second Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/Secound_mxvtxo.jpg'],
+  ['Third Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/third_zkd2r9.jpg'],
+])
 </script>
 
 <template>
-  <!-- <p>{{ root_response }}</p> -->
-  <div
-    v-if="root_response.user_session.id"
-    class="flex flex-col items-center justify-center pt-[5em]"
-  >
-    <TabGroup :selected-index="currentTabIndex" @change="currentTabIndex = $event">
-      <!-- Tablist -->
-      <div class="flex items-center justify-center mb-4">
-        <TabList class="tabs tabs-box self-center">
-          <Tab class="tab focus:outline-none">All</Tab>
-          <Tab class="tab focus:outline-none">Bought</Tab>
-          <Tab class="tab focus:outline-none">Cart</Tab>
-        </TabList>
+  <div class="pt-[5em] flex flex-row flex-wrap justify-center gap-5">
+    <h1 class="text-[3em] font-black text-shadow-md font-shan">ဝႂ်သုၼ်ႇလီ ဝၼ်းၵေႃႇတင်ႈမုၵ်ႉၸုမ်း"ၵေႃတႆး" 27 ပီႊတဵမ်</h1>
+   <section class="w-full min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 py-12 px-5 md:py-20">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    
+    <!-- LEFT SIDE: TEXT CONTENT -->
+    <div class="space-y-8 order-2 lg:order-1">
+      <!-- Main Title -->
+      <div class="space-y-4">
+        <h1 class="font-shan text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text 
+                     bg-gradient-to-r from-amber-900 to-orange-700 leading-tight
+                     drop-shadow-lg animate-fade-in">
+          ယိူင်းဢၢၼ်း ဝႂ်သုၼ်ႇလီ
+        </h1>
+        </br>
+        <h2 class="text-xl md:text-2xl font-shan text-amber-900/90 leading-snug
+                     drop-shadow-md animate-fade-in-delay">
+          တႃႇတေမေႇသၢင်ႈ ၵၢၼ်ပၢႆးပၺ်ႇၺႃႇၸိူဝ်ႉၶိူဝ်းတႆး
+        </h2>
       </div>
 
-      <search v-if="currentTabIndex === 0" @got-input="handleInput"></search>
+      <!-- Description Box with Glassmorphism Effect -->
+      <div class="relative group">
+        <div class="absolute -inset-1 bg-gradient-to-r from-amber-600 to-orange-600 
+                      rounded-2xl blur opacity-25 group-hover:opacity-40 transition duration-500">
+        </div>
+        <div class="relative bg-white/90 backdrop-blur-md border border-amber-200 
+                      rounded-2xl p-8 shadow-xl">
+          <p class="text-lg md:text-xl leading-relaxed text-amber-950 font-shan">
+            ၼႂ်းၵၢၼ်သၢင်ႈပၢႆးပၺ်ႇၺႃႇၸိူဝ်ႉၶိူဝ်းတႆးၼႆႉ ႁႅင်းငဝ်ႈတိုၼ်းတႃႇပွင်ၵၢၼ်မၼ်း တေၸႂ်ယႂ်ႇ ၸဝ်ႈတႃႇၼႃႉၽူႈလူႇတၢၼ်း ၵေႃႈဢမ်ႇယိုၼ်းယၢဝ်း။ 
+            တေၸႂ်ယႂ်ႇဢဵၼ်ႁႅင်း ၵႃႊႁဵၼ်းတီႈပေႃႈမႄႈ လုၵ်ႈႁဵၼ်းၵေႃႈ သမ်ႉၺႃးၶၢဝ်းၽွင်းတႆးတူၵ်းၵိၼ်းၼႆလႄႈ 
+            ၵေႃတႆး ၸင်ႇၶူင်ႊဝူၼ်ႉ လၢႆးႁူမ်ႈတိုၼ်း ဢၼ်မီးတၢင်းမုင်ႈမွင်း ၽွၼ်းလႆႈၶိုၼ်းၼၼ်ႉယူႇဢေႃႈ။ 
+            ၵၢၼ်ႁူမ်ႈတိုၼ်း ဢၼ်မီးတၢင်းမုင်ႈမွင်းၽွၼ်းလႆႈၶိုၼ်းၼၼ်ႉ ပဵၼ်ၵၢၼ်ဢၼ်ၵူႊၵေႃႉ တေၸူမ်းသိူဝ်း ႁူမ်ႈသၢင်ႈပႃးၸွမ်းၼႆၼၼ်ႉယဝ်ႉၶႃႈ။
+          </p>
+        </div>
+      </div>
 
-      <TabPanels class="md:w-[98vw] overflow-auto">
-        <!-- All available tickets tab -->
-        <TabPanel :key="'all'" v-auto-animate>
-          <allCards
-            route-to-fetch="/"
-            :query="queryToSearch"
-            decorative-classes="flex flex-wrap gap-2 border-2 border-base-200 rounded-md p-4 tab-content overflow-auto max-h-[70vh] justify-center items-center"
-          />
-          <cartModal :show-b-t-n="showPayment.value"></cartModal>
-        </TabPanel>
+      <!-- Optional decorative element -->
+      <div class="flex justify-start">
+        <div class="h-1 w-32 bg-gradient-to-r from-amber-600 to-orange-500 rounded-full"></div>
+      </div>
+    </div>
 
-        <!-- Bought tickets tab -->
-        <TabPanel :key="'bought'">
-          <boughtView
-            :is-agent="
-              root_response.user_session.role === 'agent' ||
-              root_response.user_session.role === 'admin'
-            "
-            class="w-[98vw] h-[75vh]"
-          ></boughtView>
-        </TabPanel>
+    <!-- RIGHT SIDE: IMAGE with floating effect -->
+    <div class="flex justify-center lg:justify-end order-1 lg:order-2">
+  <div class="relative">
+    <!-- Soft glow background -->
+    <div class="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 
+                  rounded-3xl blur-3xl opacity-30 -z-10 scale-110"></div>
 
-        <!-- Cart/Payment Tab -->
-        <TabPanel class="flex justify-center" :key="'cart'">
-          <div class="w-[95vw] md:w-[50vw]">
-            <cartView @show="handleShowPayment" />
-
-            <PaymentDiv :show="showPayment.value" @confirm="handleConfirmCart"></PaymentDiv>
-          </div>
-        </TabPanel>
-      </TabPanels>
-    </TabGroup>
-  </div>
-
-  <div v-else class="pt-[5em] flex flex-col items-center justify-center">
-    <search v-if="currentTabIndex === 0" @got-input="handleInput"></search>
-
-    <div class="md:w-[98vw] overflow-auto">
-      <!-- All available tickets tab -->
-      <allCards
-        route-to-fetch="/"
-        :query="queryToSearch"
-        decorative-classes="flex flex-wrap gap-2 border-2 border-base-200 rounded-md p-4 overflow-auto max-h-[80vh] justify-center items-center"
+    <!-- Image Container – now fully responsive for landscape images -->
+    <div class="w-full max-w-4xl">
+      <img
+        src="https://res.cloudinary.com/dzx6dedea/image/upload/v1765454140/ticket_zsxm2e.jpg"
+        alt="ၵၢၼ်ပၢႆးပၺ်ႇၺႃႇ"
+        class="w-full h-auto max-h-[85vh] object-contain rounded-3xl
+               shadow-2xl border-8 border-white/90
+               hover:scale-[1.02] transition-transform duration-700
+               drop-shadow-2xl"
       />
     </div>
+  </div>
+</div>
+  </div>
+</section>
+
+    <h1 class="text-[3em] font-black text-shadow-md font-shan">Prizes</h1>
+    <section class="w-full p-5">
+  <h2 class="sr-only">Prizes</h2>
+
+  <!-- responsive grid: 1 col mobile, 2 col small, 3 col lg -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-start">
+    <figure
+      v-for="(item, idx) in prizeIMGs"
+      :key="idx"
+      class="bg-white rounded-lg overflow-hidden shadow-sm flex flex-col"
+      role="group"
+      aria-label="prize card"
+    >
+      <!-- image area: responsive height, object-cover keeps center crop -->
+      <div class="w-full h-48 sm:h-56 md:h-64 overflow-hidden">
+        <img
+          :src="item[1]"
+          :alt="item[0]"
+          class="w-full h-full object-cover"
+          loading="lazy"
+        />
+      </div>
+
+      <!-- caption -->
+      <figcaption class="px-4 py-3 text-center">
+        <p class="text-lg font-semibold">{{ item[0] }}</p>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+    <!-- <h1 class="text-[3em] font-black text-shadow-md mb-3 self-center">Agents</h1> -->
+     <agents-list></agents-list>
   </div>
 </template>

@@ -24,9 +24,9 @@ defineProps({
         button-route="/"
       />
       <simpleButton
-        button-title="About"
+        button-title="Shop"
         hover="ease-in-out hover:-translate-y-1 hover:scale-110"
-        button-route="/about"
+        button-route="/shop"
       />
     </div>
 
