@@ -76,7 +76,7 @@ async function onLoadMore() {
   }
 
   console.log('NEW BATCH: ', newBatch)
-  await new Promise((resolve) => setTimeout(resolve, 500))
+  // await new Promise((resolve) => setTimeout(resolve, 500))
 
   if (newBatch?.data?.data?.length) {
     console.log('NEW BATCH 2: ', newBatch)
