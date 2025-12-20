@@ -32,7 +32,7 @@ const props = defineProps({
         hover=""
         :code="props.code"
         route-to-run="/cart/add"
-        redirect-on-fail="/register"
+        redirect-on-fail="/login"
       />
     </div>
   </div>
