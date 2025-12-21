@@ -76,13 +76,24 @@ const prizeIMGs = ref([
 </div>
   </div>
 
-  <div class="mt-[3em]">
-    <CardsPreview 
-        :component-to-use="card"
-        route="/"
-        inherit-classes="flex flex-wrap gap-2 rounded-md p-4 tab-content md:max-w-[75vw] justify-center items-center"
-      ></CardsPreview>
-  </div>
+ <div class="mt-[3em]">
+  <CardsPreview 
+    :component-to-use="card"
+    route="/"
+    inherit-classes="
+      grid
+      grid-cols-1
+      sm:grid-cols-2
+      md:grid-cols-3
+      gap-4
+      rounded-md
+      p-4
+      tab-content
+      md:max-w-[75vw]
+      mx-auto
+    "
+  ></CardsPreview>
+</div>
 
   <div class="flex justify-start">
         <div class="h-1 w-32 bg-gradient-to-r from-amber-600 to-orange-500 rounded-full"></div>
