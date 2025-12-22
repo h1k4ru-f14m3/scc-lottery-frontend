@@ -19,7 +19,7 @@ onMounted(async () => {
 
 <template>
   <h1 class="font-black text-6xl mb-3">Cards Preview</h1>
-  <div class="f<div class="w-full flex justify-center">
+  <div class="w-full flex justify-center">
     <div :class="props.inheritClasses">
       <component
         :is="props.componentToUse"
