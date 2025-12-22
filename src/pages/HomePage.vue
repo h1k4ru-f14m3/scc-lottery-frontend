@@ -83,7 +83,7 @@ const prizeIMGs = ref([
      
 </section>
 
-    <h1 class="text-6xl font-black text-shadow-md">Prizes</h1>
+    <h1 class="text-6xl font-black text-shadow-md">သူးသုၼ်ႇလီ</h1>
     <section class="w-full p-5">
   <h2 class="sr-only">Prizes</h2>
 
