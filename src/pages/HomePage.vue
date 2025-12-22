@@ -86,7 +86,7 @@ const prizeIMGs = ref([
       sm:grid-cols-2
       md:grid-cols-3
       gap-y-6
-      gap-x-8
+      gap-x-8 d:gap-x-10
       rounded-md
       p-4
       tab-content
