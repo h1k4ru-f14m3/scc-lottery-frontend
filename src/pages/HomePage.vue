@@ -95,7 +95,7 @@ const prizeIMGs = ref([
       rounded-md
       p-4
       sm:p-6
-      tab-content
+      
       max-w-[95vw]
       md:max-w-[90vw]
       mx-auto
