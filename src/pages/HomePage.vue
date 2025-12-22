@@ -87,17 +87,24 @@ const prizeIMGs = ref([
       md:grid-cols-3
       lg:grid-cols-4
 
-      gap-6                  /* base gap: good space on mobile */
-      sm:gap-8               /* more on tablets */
-      md:gap-10              /* even more on desktop */
-      lg:gap-12              /* spacious on large screens */
+      gap-x-6               /* horizontal space between columns */
+      gap-y-10              /* taller vertical space between rows/cards */
+      
+      sm:gap-x-8
+      sm:gap-y-12
+      
+      md:gap-x-10
+      md:gap-y-14
+      
+      lg:gap-x-12
+      lg:gap-y-16
 
       rounded-md
-      p-4
-      sm:p-6
-      
-      max-w-[95vw]
-      md:max-w-[90vw]
+      p-4 sm:p-6 lg:p-8
+      tab-content
+      w-full
+      max-w-[96vw]
+      md:max-w-[92vw]
       mx-auto
     `"
   />
