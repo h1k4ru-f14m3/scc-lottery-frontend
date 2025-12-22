@@ -6,8 +6,9 @@ import card from '@/components/general_components/card.vue';
 
 const prizeIMGs = ref([
   ['First Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/first_c3gjan.jpg'],
-  ['Second Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/Secound_mxvtxo.jpg'],
-  ['Third Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/third_zkd2r9.jpg'],
+  ['Second Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765929541/motor_bh4o2l.png'],
+  ['Third Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765929761/phone_z4uher.png'],
+  ['Fourth Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/third_zkd2r9.jpg'],
 ])
 </script>
 
@@ -21,7 +22,7 @@ const prizeIMGs = ref([
     <div class="space-y-8 order-2 lg:order-1">
       <!-- Main Title -->
       <div class="space-y-4">
-        <h1 class="font-shan text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text 
+        <h1 class="font-shan text-4xl md:text-5xl lg:text-6xl font-black bg-clip-text 
                      bg-gradient-to-r from-amber-900 to-orange-700 leading-tight
                      drop-shadow-lg animate-fade-in">
           ယိူင်းဢၢၼ်း ဝႂ်သုၼ်ႇလီ
@@ -74,28 +75,17 @@ const prizeIMGs = ref([
     </div>
   </div>
 </div>
-  </div>
+</div>
 
-  <div class="mt-[3em]">
-    <CardsPreview 
-        :component-to-use="card"
-        route="/"
-        inherit-classes="flex flex-wrap gap-2 rounded-md p-4 tab-content md:max-w-[75vw] justify-center items-center"
-      ></CardsPreview>
-  </div>
-
-  <div class="flex justify-start">
-        <div class="h-1 w-32 bg-gradient-to-r from-amber-600 to-orange-500 rounded-full"></div>
-      </div>
-
+ <div class="mt-[3em]"> <CardsPreview :component-to-use="card" route="/" inherit-classes="flex flex-wrap gap-2 rounded-md p-4 tab-content md:max-w-[75vw] justify-center items-center" ></CardsPreview> </div>
 </section>
 
-    <h1 class="text-6xl font-black text-shadow-md">Prizes</h1>
+    <h1 class="text-6xl font-black text-shadow-md">သူးသုၼ်ႇလီ</h1>
     <section class="w-full p-5">
   <h2 class="sr-only">Prizes</h2>
 
   <!-- responsive grid: 1 col mobile, 2 col small, 3 col lg -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-start">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
     <figure
       v-for="(item, idx) in prizeIMGs"
       :key="idx"
