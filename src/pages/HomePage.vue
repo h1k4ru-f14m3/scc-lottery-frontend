@@ -79,7 +79,7 @@ const prizeIMGs = ref([
 
  <div class="mt-[3em]"> 
    <CardsPreview :component-to-use="card" route="/" 
-     inherit-classes="flex flex-wrap gap-2 rounded-md p-4 tab-content md:max-w-[75vw] justify-center items-center" ></CardsPreview> </div>
+     class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-start"" ></CardsPreview> </div>
      
 </section>
 
@@ -88,7 +88,7 @@ const prizeIMGs = ref([
   <h2 class="sr-only">Prizes</h2>
 
   <!-- responsive grid: 1 col mobile, 2 col small, 3 col lg -->
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 items-start">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-start">
     <figure
       v-for="(item, idx) in prizeIMGs"
       :key="idx"
