@@ -18,7 +18,7 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="w-full flex justify-center">
+  <div class="flex flex-col items-center justify-center">
     <h1 class="font-black text-6xl mb-3">Cards Preview</h1>
     <div :class="props.inheritClasses">
       <component
