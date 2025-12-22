@@ -79,7 +79,7 @@ const prizeIMGs = ref([
 
  <div class="mt-[3em]"> 
    <CardsPreview :component-to-use="card" route="/" 
-     class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></CardsPreview> </div>
+     class="grid grid-cols-3 sm:grid-cols-2 md:grid-cols-3 gap-6"></CardsPreview> </div>
      
 </section>
 
