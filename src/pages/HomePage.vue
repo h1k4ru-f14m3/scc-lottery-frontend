@@ -82,29 +82,27 @@ const prizeIMGs = ref([
     route="/"
     :inherit-classes="`
       grid
-      grid-cols-1              /* 1 column on mobile */
-      sm:grid-cols-2           /* 2 columns on small tablets */
-      md:grid-cols-3           /* 3 columns on desktop */
-      lg:grid-cols-4           /* optional: 4 on large screens */
+      grid-cols-1
+      sm:grid-cols-2
+      md:grid-cols-3
+      lg:grid-cols-4
 
-      gap-y-8                  /* good vertical spacing everywhere */
-      
-      gap-x-6                  /* decent base space on mobile (24px) */
-      sm:gap-x-8               /* 32px on sm */
-      md:gap-x-10              /* 40px on md */
-      lg:gap-x-12              /* 48px on lg – feels spacious */
+      gap-6                  /* base gap: good space on mobile */
+      sm:gap-8               /* more on tablets */
+      md:gap-10              /* even more on desktop */
+      lg:gap-12              /* spacious on large screens */
 
       rounded-md
-      p-4                      /* container padding – keep moderate on mobile */
-      sm:p-6                   /* more padding on larger screens */
+      p-4
+      sm:p-6
       tab-content
-      max-w-[95vw]             /* use almost full width on mobile */
-      md:max-w-[85vw]          /* slightly narrower on desktop for better look */
+      max-w-[95vw]
+      md:max-w-[90vw]
       mx-auto
     `"
   />
 </div>
-
+     
 </section>
 
     <h1 class="text-6xl font-black text-shadow-md">Prizes</h1>
