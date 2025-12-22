@@ -87,7 +87,7 @@ const prizeIMGs = ref([
       md:grid-cols-3
       gap-y-8          /* vertical space between rows */
       gap-x-8          /* base horizontal space */
-      sm:gap-x-10
+      sm:gap-x-12
       md:gap-x-12
       lg:gap-x-16      /* even more space on large screens */
       rounded-md
