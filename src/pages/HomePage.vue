@@ -76,7 +76,7 @@ const prizeIMGs = ref([
 </div>
   </div>
 
- div class="mt-[3em]">
+ <div class="mt-[3em]">
   <CardsPreview
     :component-to-use="card"
     route="/"
@@ -85,14 +85,15 @@ const prizeIMGs = ref([
       grid-cols-1
       sm:grid-cols-2
       md:grid-cols-3
-      lg:grid-cols-4       /* optional: more columns on large screens */
-      gap-8                /* uniform gap for both x and y */
-      sm:gap-10
-      lg:gap-12            /* even more breathing room on larger screens */
+      gap-y-8          /* vertical space between rows */
+      gap-x-8          /* base horizontal space */
+      sm:gap-x-10
+      md:gap-x-12
+      lg:gap-x-16      /* even more space on large screens */
       rounded-md
-      p-6                  /* more inner padding around the whole grid */
+      p-6
       tab-content
-      md:max-w-[90vw]      /* slightly wider to use more screen space */
+      md:max-w-[90vw]
       mx-auto
     `"
   />
