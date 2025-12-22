@@ -35,4 +35,10 @@ onMounted(async () => {
       ></simpleButton>
     </div>
   </div>
+  <simpleButton
+        button-route="/shop"
+        bg-color="btn btn-primary text-2xl shadow-lg m-3 transition rounded-md ease-in-out hover:-translate-y-1 hover:scale-110"
+        :use-default="false"
+        button-title="See More..."
+      ></simpleButton>
 </template>
