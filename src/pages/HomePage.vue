@@ -6,8 +6,9 @@ import card from '@/components/general_components/card.vue';
 
 const prizeIMGs = ref([
   ['First Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/first_c3gjan.jpg'],
-  ['Second Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/Secound_mxvtxo.jpg'],
-  ['Third Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/third_zkd2r9.jpg'],
+  ['Second Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765929541/motor_bh4o2l.png'],
+  ['Third Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/Secound_mxvtxo.jpg'],
+  ['Fourth Prize', 'https://res.cloudinary.com/dzx6dedea/image/upload/v1765446461/third_zkd2r9.jpg'],
 ])
 </script>
 
