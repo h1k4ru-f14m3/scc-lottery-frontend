@@ -15,7 +15,7 @@ const prizeIMGs = ref([
 <template>
   <div class="pt-[5em] flex flex-row flex-wrap justify-center gap-5">
     <h1 class="font-black text-shadow-md font-shan
-         text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl
+         text-xl sm:text-2xl md:text-2xl lg:text-4xl xl:text-6xl
          text-center md:text-left leading-tight">
   ဝႂ်သုၼ်ႇလီ ဝၼ်းၵေႃႇတင်ႈမုၵ်ႉၸုမ်း "ၵေႃတႆး" 27 ပီႊတဵမ်
 </h1>
