@@ -24,6 +24,10 @@ const handleSubmit = (data) => {
     <formDiv
       :inputs="formInputs"
       button-title="Register"
+      :use-auth-switch="true"
+      auth-switch-message="Already have an account?"
+      auth-switch-route="/login"
+      auth-switch-route-name="Login"
       title="Register"
       @submit="handleSubmit"
       :message="response"

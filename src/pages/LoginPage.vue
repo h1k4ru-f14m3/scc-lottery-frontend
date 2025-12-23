@@ -12,6 +12,15 @@ const handleData = (data) => {
 
 <template>
   <div class="flex justify-center items-center h-screen">
-    <formDiv title="Login" button-title="Login" @submit="handleData" :message="response" />
+    <formDiv
+      title="Login"
+      :use-auth-switch="true"
+      auth-switch-message="Don't have an account?"
+      auth-switch-route="/register"
+      auth-switch-route-name="Register"
+      button-title="Login"
+      @submit="handleData"
+      :message="response"
+    />
   </div>
 </template>

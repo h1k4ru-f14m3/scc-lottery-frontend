@@ -3,6 +3,7 @@ import { reactive, defineEmits, computed, ref } from 'vue';
 import { TransitionRoot, TransitionChild } from '@headlessui/vue';
 import simpleButton from '../general_components/simpleButton.vue';
 import { vAutoAnimate } from '@formkit/auto-animate';
+import { RouterLink } from 'vue-router';
 
 const emit = defineEmits(['submit'])
 
@@ -21,7 +22,23 @@ const props = defineProps({
     no_bg: {
         type: Boolean,
         default: false,
-    }
+    },
+    useAuthSwitch: {
+        type: Boolean,
+        default: false,
+    },
+    authSwitchMessage: {
+        type: String,
+        default: '',
+    },
+    authSwitchRoute: {
+        type: String,
+        default: '',
+    },
+    authSwitchRouteName: {
+        type: String,
+        default: '',
+    },
 })
 
 const formData = reactive({})
@@ -68,6 +85,8 @@ const showMessage = computed(() => {return props.message !== null})
             <input class="w-[22em] h-[2.5em] p-2 shadow-md mx-auto input" :name="item.name" v-model="formData[item.name]" :type="item.type"></input>
 
         </div>
+
+        <p v-if="useAuthSwitch" class="mx-5 my-3 mb-0 text-md">{{ authSwitchMessage }} <RouterLink class="underline text-primary transition hover:opacity-50" :to="authSwitchRoute">{{ authSwitchRouteName }}</RouterLink></p>
 
         <simpleButton :listen-enter="true" class="mt-[2em] self-center" :button-title="buttonTitle" @click="handleSubmit" bg-color="btn-primary" />
     </div>
