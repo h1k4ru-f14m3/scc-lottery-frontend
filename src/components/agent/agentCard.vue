@@ -2,6 +2,8 @@
 import api from '@/api'
 import { onMounted, ref } from 'vue'
 
+const emits = defineEmits(['loadedAgents'])
+
 const response = ref({ data: [] })
 const img = ref({ img_data: [] })
 const loading = ref(true)
@@ -13,6 +15,7 @@ onMounted(async () => {
   img.value = img_fetch.data
 
   loading.value = false
+  emits('loadedAgents', (response.value.data.length > 0))
 })
 </script>
 
