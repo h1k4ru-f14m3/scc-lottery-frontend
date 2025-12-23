@@ -15,7 +15,7 @@ const prizeIMGs = ref([
 <template>
   <div class="pt-[5em] flex flex-row flex-wrap justify-center gap-5">
     <h1 class="font-black text-shadow-md font-shan
-         text-xl sm:text-2xl md:text-2xl lg:text-4xl
+         text-xl sm:text-2xl md:text-2xl lg:text-5xl
          text-center md:text-left leading-tight">
   ဝႂ်သုၼ်ႇလီ ဝၼ်းၵေႃႇတင်ႈမုၵ်ႉၸုမ်း "ၵေႃတႆး" 27 ပီႊတဵမ်
 </h1>
@@ -26,7 +26,7 @@ const prizeIMGs = ref([
     <div class="space-y-8 order-2 lg:order-1">
       <!-- Main Title -->
       <div class="space-y-4">
-        <h1 class="font-shan text-4xl md:text-5xl lg:text-6xl font-black bg-clip-text 
+        <h1 class="font-shan text-4xl md:text-5xl lg:text-5xl font-black bg-clip-text 
                      bg-gradient-to-r from-amber-900 to-orange-700 leading-tight
                      drop-shadow-lg animate-fade-in">
           ယိူင်းဢၢၼ်း ဝႂ်သုၼ်ႇလီ
@@ -85,7 +85,7 @@ const prizeIMGs = ref([
 </section>
 
     <h1 class="font-black text-shadow-md font-shan
-           text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+           text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl">
   သူးသုၼ်ႇလီ
 </h1>
     <section class="w-full p-5">
