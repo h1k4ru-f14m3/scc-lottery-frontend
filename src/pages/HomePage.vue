@@ -15,7 +15,7 @@ const prizeIMGs = ref([
 <template>
   <div class="pt-[5em] flex flex-row flex-wrap justify-center gap-5">
     <h1 class="font-black text-shadow-md font-shan
-         text-xl sm:text-2xl md:text-2xl lg:text-4xl xl:text-6xl
+         text-xl sm:text-2xl md:text-2xl lg:text-5xl
          text-center md:text-left leading-tight">
   ဝႂ်သုၼ်ႇလီ ဝၼ်းၵေႃႇတင်ႈမုၵ်ႉၸုမ်း "ၵေႃတႆး" 27 ပီႊတဵမ်
 </h1>
@@ -26,7 +26,7 @@ const prizeIMGs = ref([
     <div class="space-y-8 order-2 lg:order-1">
       <!-- Main Title -->
       <div class="space-y-4">
-        <h1 class="font-shan text-4xl md:text-5xl lg:text-6xl font-black bg-clip-text 
+        <h1 class="font-shan text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black bg-clip-text 
                      bg-gradient-to-r from-amber-900 to-orange-700 leading-tight
                      drop-shadow-lg animate-fade-in">
           ယိူင်းဢၢၼ်း ဝႂ်သုၼ်ႇလီ
@@ -45,7 +45,7 @@ const prizeIMGs = ref([
         </div>
         <div class="relative bg-white/90 backdrop-blur-md border border-amber-200 
                       rounded-2xl p-8 shadow-xl">
-          <p class="text-lg md:text-xl leading-relaxed text-amber-950 font-shan">
+          <p class="text-lg sm:text-lg md:text-xl leading-relaxed text-amber-950 font-shan">
             ၼႂ်းၵၢၼ်သၢင်ႈပၢႆးပၺ်ႇၺႃႇၸိူဝ်ႉၶိူဝ်းတႆးၼႆႉ ႁႅင်းငဝ်ႈတိုၼ်းတႃႇပွင်ၵၢၼ်မၼ်း တေၸႂ်ယႂ်ႇ ၸဝ်ႈတႃႇၼႃႉၽူႈလူႇတၢၼ်း ၵေႃႈဢမ်ႇယိုၼ်းယၢဝ်း။ 
             တေၸႂ်ယႂ်ႇဢဵၼ်ႁႅင်း ၵႃႊႁဵၼ်းတီႈပေႃႈမႄႈ လုၵ်ႈႁဵၼ်းၵေႃႈ သမ်ႉၺႃးၶၢဝ်းၽွင်းတႆးတူၵ်းၵိၼ်းၼႆလႄႈ 
             ၵေႃတႆး ၸင်ႇၶူင်ႊဝူၼ်ႉ လၢႆးႁူမ်ႈတိုၼ်း ဢၼ်မီးတၢင်းမုင်ႈမွင်း ၽွၼ်းလႆႈၶိုၼ်းၼၼ်ႉယူႇဢေႃႈ။ 
@@ -85,7 +85,7 @@ const prizeIMGs = ref([
 </section>
 
     <h1 class="font-black text-shadow-md font-shan
-           text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+           text-3xl sm:text-3xl md:text-4xl lg:text-5xl">
   သူးသုၼ်ႇလီ
 </h1>
     <section class="w-full p-5">
