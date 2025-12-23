@@ -4,7 +4,7 @@ import agentCard from './agentCard.vue'
 
 <template>
   <h1
-    class="text-[5em] sm:text-xl md:text-4xl font-black text-shadow-md mb-3 w-full text-center font-shan"
+    class="sm:text-xl md:text-4xl font-black text-shadow-md mb-3 w-full text-center font-shan"
   >
     ၽူႈတၢင်တူဝ် ၶၢႆဝႂ်သုၼ်ႇလီ
   </h1>
