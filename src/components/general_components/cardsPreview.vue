@@ -27,6 +27,8 @@ onMounted(async () => {
         :key="item[0]"
         :code="item[0]"
       ></component>
+    </div>
+    <div :class="props.inheritClasses">
       <simpleButton
         button-route="/shop"
         bg-color="btn btn-primary text-2xl shadow-lg m-3 transition rounded-md ease-in-out hover:-translate-y-1 hover:scale-110"
