@@ -19,7 +19,7 @@ onMounted(async () => {
 
 <template>
   <div class="flex flex-col items-center justify-center">
-    <h1 class="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 leading-tight">
+    <h1 class="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 leading-tight font-shan">
   မၢႆၸိူဝ်းဢၼ်သိုဝ်ႉလႆႈ
 </h1>
     <div :class="props.inheritClasses">
@@ -33,7 +33,7 @@ onMounted(async () => {
     <div :class="props.inheritClasses">
       <simpleButton
         button-route="/shop"
-        bg-color="btn btn-primary text-2xl shadow-lg m-3 transition rounded-md ease-in-out hover:-translate-y-1 hover:scale-110"
+        bg-color="btn btn-primary text-2xl shadow-lg m-3 transition rounded-md font-shan ease-in-out hover:-translate-y-1 hover:scale-110"
         :use-default="false"
         button-title="သိုပ်ႇတူၺ်း..."
       ></simpleButton>
