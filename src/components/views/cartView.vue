@@ -7,7 +7,7 @@ const emits = defineEmits(['show'])
 
 const response = ref()
 onMounted(async () => {
-  await getData('/cart', response)
+  await getData('/cart/', response)
 })
 
 const tickets_bought = ref([])
