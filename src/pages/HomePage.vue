@@ -85,7 +85,7 @@ const prizeIMGs = ref([
 </section>
 
     <h1 class="font-black text-shadow-md font-shan
-           text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl">
+           text-3xl sm:text-3xl md:text-4xl lg:text-5xl">
   သူးသုၼ်ႇလီ
 </h1>
     <section class="w-full p-5">
