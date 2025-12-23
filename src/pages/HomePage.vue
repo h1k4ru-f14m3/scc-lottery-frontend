@@ -77,7 +77,7 @@ const prizeIMGs = ref([
 </div>
 </div>
 
- <div class="mt-[3em]"> <CardsPreview :component-to-use="card" route="/" inherit-classes="flex flex-wrap gap-2 rounded-md p-4 tab-content md:max-w-[75vw] justify-center items-center" ></CardsPreview> </div>
+ <div class="mt-[3em]"> <CardsPreview :component-to-use="card" route="/" inherit-classes="flex flex-wrap gap-2 rounded-md p-4 tab-content md:max-w-[100vw] lg:max-w-[75vw] justify-center items-center" ></CardsPreview> </div>
 </section>
 
     <h1 class="text-6xl font-black text-shadow-md font-shan">သူးသုၼ်ႇလီ</h1>
