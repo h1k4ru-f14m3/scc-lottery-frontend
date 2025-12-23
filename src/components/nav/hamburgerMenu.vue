@@ -33,12 +33,12 @@ function toggleMenu() {
 
   <Dialog :open="menuOpen" @close="toggleMenu">
     <DialogPanel>
-        <div class="menu bg-base-200 rounded-lg fixed top-15 left-0 w-full transition shadow-md">
+        <div class="menu bg-base-200 rounded-lg fixed top-15 left-0 w-full transition shadow-md z-100">
             <simpleButton @click-extra="toggleMenu"
                 :use-default="false" button-title="Home" bg-color="w-full text-center text-lg py-1 px-3 rounded-md transition" hover="hover:bg-base-100 focus:outline-none"     button-route="/"
             />
             <simpleButton @click-extra="toggleMenu"
-                :use-default="false" button-title="About" bg-color="w-full text-center text-lg py-1 px-3 rounded-md transition" hover="hover:bg-base-100 focus:outline-none" button-route="/about" 
+                :use-default="false" button-title="Shop" bg-color="w-full text-center text-lg py-1 px-3 rounded-md transition" hover="hover:bg-base-100 focus:outline-none" button-route="/shop" 
             />
 
             <div class="flex flex-col mt-5 justify-center items-center">
