@@ -10,7 +10,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="flex flex-col justify-center items-center sm:p-4 md:p-8 md:pt-[5em] pt-[5em]">
+  <div
+    class="flex flex-col justify-center items-center sm:p-4 md:p-8 md:pt-[5em] pt-[5em] overflow-hidden"
+  >
     <div v-if="admin_check.success">
       <allAdminComponents></allAdminComponents>
     </div>
