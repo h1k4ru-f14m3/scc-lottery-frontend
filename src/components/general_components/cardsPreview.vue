@@ -19,7 +19,9 @@ onMounted(async () => {
 
 <template>
   <div class="flex flex-col items-center justify-center">
-    <h1 class="font-black text-6xl mb-3">Cards Preview</h1>
+    <h1 class="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-3 leading-tight">
+  Cards Preview
+</h1>
     <div :class="props.inheritClasses">
       <component
         :is="props.componentToUse"
