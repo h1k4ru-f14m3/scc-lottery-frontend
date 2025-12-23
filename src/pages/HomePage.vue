@@ -14,7 +14,10 @@ const prizeIMGs = ref([
 
 <template>
   <div class="pt-[5em] flex flex-row flex-wrap justify-center gap-5">
-    <h1 class="text-[3em] font-black text-shadow-md font-shan">ဝႂ်သုၼ်ႇလီ ဝၼ်းၵေႃႇတင်ႈမုၵ်ႉၸုမ်း"ၵေႃတႆး" 27 ပီႊတဵမ်</h1>
+    <h1 class="font-black text-shadow-md font-shan
+           text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
+  ဝႂ်သုၼ်ႇလီ ဝၼ်းၵေႃႇတင်ႈမုၵ်ႉၸုမ်း "ၵေႃတႆး" 27 ပီႊတဵမ်
+</h1>
    <section class="w-full min-h-screen bg-gradient-to-br from-amber-50 to-orange-100 py-12 px-5 md:py-20">
   <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
     
@@ -80,7 +83,10 @@ const prizeIMGs = ref([
  <div class="mt-[3em]"> <CardsPreview :component-to-use="card" route="/" inherit-classes="flex flex-wrap gap-2 rounded-md p-4 tab-content md:max-w-[100vw] lg:max-w-[75vw] justify-center items-center" ></CardsPreview> </div>
 </section>
 
-    <h1 class="text-6xl font-black text-shadow-md font-shan">သူးသုၼ်ႇလီ</h1>
+    <h1 class="font-black text-shadow-md font-shan
+           text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
+  သူးသုၼ်ႇလီ
+</h1>
     <section class="w-full p-5">
   <h2 class="sr-only">Prizes</h2>
 
