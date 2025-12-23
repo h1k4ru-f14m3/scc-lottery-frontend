@@ -26,7 +26,7 @@ const prizeIMGs = ref([
     <div class="space-y-8 order-2 lg:order-1">
       <!-- Main Title -->
       <div class="space-y-4">
-        <h1 class="font-shan text-xl sm:text-2xl md:text-4xl lg:text-5xl font-black bg-clip-text 
+        <h1 class="font-shan text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black bg-clip-text 
                      bg-gradient-to-r from-amber-900 to-orange-700 leading-tight
                      drop-shadow-lg animate-fade-in">
           ယိူင်းဢၢၼ်း ဝႂ်သုၼ်ႇလီ
