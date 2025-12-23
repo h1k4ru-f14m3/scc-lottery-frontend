@@ -33,7 +33,7 @@ onMounted(async () => {
     <div :class="props.inheritClasses">
       <simpleButton
         button-route="/shop"
-        bg-color="btn btn-primary text-2xl shadow-lg m-3 transition rounded-md font-shan ease-in-out hover:-translate-y-1 hover:scale-110"
+        class="bg-blue-500 text-2xl shadow-lg m-3 transition rounded-lg font-shan ease-in-out hover:-translate-y-1 hover:scale-110"
         :use-default="false"
         button-title="သိုပ်ႇတူၺ်း..."
       ></simpleButton>
