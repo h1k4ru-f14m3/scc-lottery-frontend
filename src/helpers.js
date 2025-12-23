@@ -36,6 +36,8 @@ export default async function authFormSubmit(data, response, route, backhome = t
   //   console.log(sendable)
   formSubmit(data, response, route, false, backhome)
 
+  await getData('/', root_response)
+
   // let res = await api.post(route, data)
   // const resultData = res.data
   // if (resultData.success) {
@@ -59,7 +61,7 @@ export async function formSubmit(data, response, route, changeIndex = false, bac
       return 1
     }
     if (back_home) {
-      router.push('/')
+      router.push('/shop')
     } else {
       if (response) {
         response.value = resultData.success

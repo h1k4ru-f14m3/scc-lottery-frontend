@@ -1,8 +1,9 @@
 <script setup>
 import navBar from './components/nav/navBar.vue'
-import { user_session } from './stores/tempSessions'
+import { user_session, root_response } from './stores/tempSessions'
+import { getData } from './helpers'
 
-// getData(user_session, '/')
+getData('/', root_response)
 </script>
 
 <template>
