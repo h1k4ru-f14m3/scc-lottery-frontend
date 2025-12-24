@@ -10,15 +10,21 @@ import editUser from './modals/users/editUser.vue'
 import pagination from '../general_components/pagination.vue'
 import search from '../general_components/search.vue'
 import { nextTick } from 'vue'
+import api from '@/api'
 
 const props = defineProps({
   limit: Number,
 })
 
 const modalBtnProps = {
-  'button-title': 'Edit User',
+  'button-title': 'Edit',
   'bg-color': 'btn btn-warning shadow-md m-0',
   onClickExtra: toggleEditModal,
+}
+const delBtnProps = {
+  'button-title': 'Delete',
+  'bg-color': 'btn btn-warning shadow-md m-0',
+  onClickExtra: handleDelUser,
 }
 
 // Prepare Form Div
@@ -94,6 +100,18 @@ async function handleAddUser(data) {
     }, 2000)
   }
 }
+
+async function handleDelUser(data) {
+  console.log('DELETE USER ID: ', data[0])
+  const res = await api.post('/user/del_user', { id: data[0] })
+  const resultData = res.data
+
+  console.log('RESULT DATA: ', resultData)
+
+  if (resultData.success) {
+    await getData('/user/', response, offset.value, search.value, 'code')
+  }
+}
 </script>
 
 <template>
@@ -129,13 +147,19 @@ async function handleAddUser(data) {
     <!-- DATA TABLE -->
     <div class="pt-[10em]">
       <simpleTable
-        :theads="['User ID', 'Name', 'Role', 'Phone Number', 'Address', 'Actions']"
+        :theads="['User ID', 'Name', 'Role', 'Phone Number', 'Address', 'Edit', 'Delete']"
         :trows="response.data"
         :use_extra_components="true"
         :extra_components="[
           {
             component: simpleButton,
             props: modalBtnProps,
+            key: 'extraData',
+            dataList: response.data,
+          },
+          {
+            component: simpleButton,
+            props: delBtnProps,
             key: 'extraData',
             dataList: response.data,
           },

@@ -37,9 +37,11 @@ const handleSearch = async (data) => {
 
   if (!data) {
     await getData('/tickets/', response)
+    search.value = '%%'
     return
   }
   await getData('/tickets/', response, offset.value, data, 'code')
+  search.value = data
 }
 
 const deleteBtnProps = {
@@ -104,7 +106,8 @@ async function delete_ticket(data) {
   console.log('RES DATA: ', resultData)
 
   if (resultData.success) {
-    await getData('/tickets/', response, 0, filter.value, 'status')
+    console.log('SEARCH QUERY: ', search.value)
+    await getData('/tickets/', response, offset.value, search.value, 'code')
   }
 }
 </script>
