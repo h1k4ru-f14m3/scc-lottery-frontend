@@ -33,7 +33,7 @@ onMounted(async () => {
     <div :class="props.inheritClasses">
       <simpleButton
         button-route="/shop"
-        class="bg-blue-500 text-2xl px-5 py-3 shadow-lg m-3 
+        class="bg-blue-500 text-2xl px-4 py-2 shadow-lg m-3 
           transition-transform duration-300 rounded-lg font-shan 
             hover:-translate-y-1 hover:scale-105"
               :use-default="false"
