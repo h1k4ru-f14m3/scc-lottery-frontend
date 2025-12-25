@@ -15,6 +15,7 @@ const emits = defineEmits(['adduser'])
 const formInputs = [
   { name: 'name', label: 'Name:' },
   { name: 'phone_number', label: 'Phone Number:' },
+  { name: 'address', label: 'Address' },
   { name: 'password', label: 'Password:', type: 'password' },
   { name: 'confirm_password', label: 'Confirm Password:', type: 'password' },
 ]
