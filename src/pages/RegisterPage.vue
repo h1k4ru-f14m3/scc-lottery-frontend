@@ -11,7 +11,7 @@ const formInputs = [
   { name: 'phone_number', label: 'မၢႆၾူၼ်း (Phone Number):' },
   { name: 'address', label: 'တီႈယူႇ (Address):' },
   { name: 'password', label: 'မၢႆလပ်ႉ (Password):', type: 'password' },
-  { name: 'confirm_password', label: 'သႂ်ႇမၢႆထႅင်ႈၵမ်း (Confirm Password):', type: 'password' },
+  { name: 'confirm_password', label: 'သႂ်ႇမၢႆလပ်ႉထႅင်ႈၵမ်း (Confirm Password):', type: 'password' },
 ]
 
 const handleSubmit = (data) => {
