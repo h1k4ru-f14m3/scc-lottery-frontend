@@ -20,7 +20,7 @@ const handleSubmit = (data) => {
 </script>
 
 <template>
-  <div class="flex justify-center items-center h-screen">
+  <div class="flex justify-center items-center h-screen font-shan">
     <formDiv
       :inputs="formInputs"
       button-title="Register"
