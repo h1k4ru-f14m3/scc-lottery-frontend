@@ -7,11 +7,11 @@ import authFormSubmit from '@/helpers'
 const response = ref(null)
 
 const formInputs = [
-  { name: 'name', label: 'Full Name:' },
-  { name: 'phone_number', label: 'Phone Number:' },
-  { name: 'address', label: 'Address:' },
-  { name: 'password', label: 'Password:', type: 'password' },
-  { name: 'confirm_password', label: 'Confirm Password:', type: 'password' },
+  { name: 'name', label: 'ၸိုဝ်ႈတဵမ် (Full Name):' },
+  { name: 'phone_number', label: 'မၢႆၽူင်း (Phone Number):' },
+  { name: 'address', label: 'တီႈယူႇ (Address):' },
+  { name: 'password', label: 'မၢႆလပ်ႉ (Password):', type: 'password' },
+  { name: 'confirm_password', label: 'သႂ်ႇမၢႆထႅင်ႈၵမ်း (Confirm Password):', type: 'password' },
 ]
 
 const handleSubmit = (data) => {
