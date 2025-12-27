@@ -64,12 +64,12 @@ export async function formSubmit(data, response, route, changeIndex = false, bac
       router.push('/shop')
     } else {
       if (response) {
-        response.value = resultData.success
+        response.value = resultData
       }
     }
   } else {
     if (response) {
-      response.value = resultData.message
+      response.value = resultData
     }
     setTimeout(() => {
       response.value = null

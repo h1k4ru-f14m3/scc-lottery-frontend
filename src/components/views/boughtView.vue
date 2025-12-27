@@ -62,7 +62,7 @@ const res_message = ref()
 async function handleEdit(val) {
   await formSubmit(val, res_message, '/order/edit_note', false, false)
 
-  if (res_message.value === 'refresh') {
+  if (res_message.value.success) {
     toggleModal(val)
     await getData('/bought_data', response)
   }
