@@ -56,7 +56,6 @@ async function handleImage(event) {
 }
 
 
-const user_fetch_data = ref()
 const user_data = ref(null)
 async function fetch_user() {
     console.log('FETCHING USER DATA!')
