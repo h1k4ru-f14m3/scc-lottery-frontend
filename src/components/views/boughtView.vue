@@ -60,9 +60,9 @@ function toggleModal(val) {
 
 const res_message = ref()
 async function handleEdit(val) {
-  await formSubmit(val, res_message, '/order/edit_note', false, false)
+  const res = await formSubmit(val, res_message, '/order/edit_note', false, false)
 
-  if (res_message.value.success) {
+  if (res.success) {
     toggleModal(val)
     await getData('/bought_data', response)
   }
