@@ -57,8 +57,11 @@ async function handleClick() {
     const response = (await api.post(props.routeToRun, { code: props.code })).data
     added.value = true
 
-    if (!response.success && props.redirectOnFail) {
-      router.push(props.redirectOnFail)
+    if (!response.success) {
+      console.log('Something went wrong :( ', response.message)
+      if (props.redirectOnFail) {
+        router.push(props.redirectOnFail)
+      }
       return
     }
 
