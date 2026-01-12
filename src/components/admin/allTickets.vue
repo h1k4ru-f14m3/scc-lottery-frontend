@@ -110,6 +110,35 @@ async function delete_ticket(data) {
     await getData('/tickets/', response, offset.value, search.value, 'code')
   }
 }
+
+const formatToLocalTime = (dateString) => {
+  if (!dateString) return 'N/A'
+
+  const newDate = new Date(dateString + ' UTC')
+
+  if (isNaN(newDate.getTime())) {
+    return dateString // Return original string if it's not a date
+  }
+
+  return new Intl.DateTimeFormat(navigator.language, {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+  }).format(newDate)
+}
+
+const formattedData = computed(() => {
+  const newData = [...response.value.data]
+  for (const row of response.value.data) {
+    // console.log(row)
+    row[4] = formatToLocalTime(row[4])
+  }
+  return newData
+})
 </script>
 
 <template>
@@ -181,7 +210,7 @@ async function delete_ticket(data) {
             component: simpleButton,
             props: deleteBtnProps,
             key: 'extraData',
-            dataList: response.data,
+            dataList: formattedData,
           },
         ]"
       ></simpleTable>
