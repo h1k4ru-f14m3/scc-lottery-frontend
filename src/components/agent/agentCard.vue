@@ -26,9 +26,9 @@ onMounted(async () => {
         <img v-if="img.img_data[index]" :src="img.img_data[index]" class="w-full h-full object-cover rounded-[100em]" loading="lazy"></img>
       </div>
 
-      <p class="font-shan text-center wrap-break-word w-full wrap text-3xl p-1 md:text-5xl font-black md:p-3">{{ item[1] }}</p>
-      <p class="font-shan text-xl md:text-2xl">{{ item[3] }}</p>
-      <p class="font-shan text-xl md:text-2xl">{{ item[4] }}</p>
+      <p class="font-shan text-center wrap-break-word w-full wrap text-3xl p-1 font-black md:p-3">{{ item[1] }}</p>
+      <p class="font-shan text-xl">{{ item[3] }}</p>
+      <p class="font-shan text-xl">{{ item[4] }}</p>
     </div>
     
     <div v-else class="flex flex-col justify-center items-center" v-for="n in 3" :key="n">
