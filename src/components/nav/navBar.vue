@@ -1,6 +1,11 @@
 <script setup>
+import { ref } from 'vue'
 import simpleButton from '../general_components/simpleButton.vue'
+import simpleModal from '../general_components/simpleModal.vue'
 import hamburgerMenu from './hamburgerMenu.vue'
+import changePfp from '../agent/changePfp.vue'
+
+const showModal = ref(false)
 
 defineProps({
   sessionData: {
@@ -10,6 +15,14 @@ defineProps({
     },
   },
 })
+
+function toggleModal() {
+  if (!showModal.value) {
+    showModal.value = true
+  } else if (showModal.value) {
+    showModal.value = false
+  }
+}
 </script>
 
 <template>
@@ -69,7 +82,30 @@ defineProps({
           button-route="/logout"
           bg-color="btn btn-primary shadow-md"
         />
+        <button
+          v-if="sessionData.role !== 'user'"
+          class="btn bg-base-300 mx-3 border-0 rounded-full p-0 w-10 h-10 items-center"
+          @click="toggleModal"
+        >
+          <img
+            v-if="sessionData.pfp"
+            :src="sessionData.pfp"
+            class="w-10 h-10 rounded-full object-cover"
+          />
+        </button>
       </div>
     </div>
+
+    <simpleModal
+      :show-modal="showModal"
+      @close-modal="toggleModal"
+      :use_extra_components="true"
+      :extra_component="[
+        {
+          component: changePfp,
+          props: { pfpDisplay: sessionData.pfp, onChangePfp: toggleModal },
+        },
+      ]"
+    ></simpleModal>
   </div>
 </template>
