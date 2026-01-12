@@ -12,8 +12,13 @@ const props = defineProps({
     isLoggedIn: {
         type: Boolean,
         default: false
-    }
+    },
+
+    sessionData: Object,
+    
 })
+
+const emits = defineEmits(['openModal'])
 
 const menuOpen = ref(false)
 function toggleMenu() {
@@ -46,7 +51,18 @@ function toggleMenu() {
                     <simpleButton @click-extra="toggleMenu" bg-color="w-full" button-title="Login" button-route="/login" hover="hover:underline decoration-2"></simpleButton>
                     <simpleButton @click-extra="toggleMenu" bg-color="w-full btn-primary" button-title="Register" button-route="/register" hover="hover:underline decoration-2"></simpleButton>
                 </div>
-                <div v-else class="flex flex-col mt-5 justify-center items-center">
+                <div v-else class="flex flex-col justify-center items-center">
+                    <button
+                        v-if="sessionData.role !== 'user'"
+                        class="btn bg-base-300 mb-5 border-0 rounded-full p-0 w-15 h-15 items-center"
+                        @click="emits('openModal', true)"
+                    >
+                        <img
+                            v-if="sessionData.pfp"
+                            :src="sessionData.pfp"
+                            class="w-15 h-15 rounded-full object-cover"
+                        />
+                    </button>
                     <simpleButton
                     v-if="props.isAdmin" @click-extra="toggleMenu" 
                     button-title="Admin"
@@ -54,59 +70,9 @@ function toggleMenu() {
                     bg-color="btn btn-primary shadow-md"
                     ></simpleButton>
                     <simpleButton @click-extra="toggleMenu" bg-color="w-full btn-primary shadow-md" button-title="Logout" button-route="/logout" hover="hover:underline decoration-2"></simpleButton>
-                    
                 </div>
             </div>
         </div>
     </DialogPanel>
   </Dialog>
-
-  <!-- <div>
-        <img v-if="!menuOpen" src="/src/assets/icons/menu.svg" alt="Menu Button" class="w-8 h-8" @click="toggleMenu"></img>
-        <img v-else-if="menuOpen" src="/src/assets/icons/x.svg" alt="Menu Button" class="w-8 h-8" @click="toggleMenu"></img>
-    </div>
-
-    <div v-if="menuOpen" class="menu bg-base-300 rounded-lg w-full fixed z-10">
-        <simpleButton
-            :use-default="false"
-            button-title="Home"
-            bg-color="text-lg py-1 px-3 rounded-md transition"
-            hover="hover:bg-base-200"                 button-route="/"
-        />
-        <simpleButton
-            :use-default="false"
-            button-title="About"
-            bg-color="text-lg py-1 px-3 rounded-md transition"
-            hover="hover:bg-base-200"
-            button-route="/about"
-        />
-    </div> -->
-  <!-- <Menu>
-    <MenuButton>
-      <img v-if="!menuOpen" src="/src/assets/icons/menu.svg" alt="Menu Button" class="w-8 h-8" @click="toggleMenu"></img>
-      <img v-else-if="menuOpen" src="/src/assets/icons/x.svg" alt="Menu Button" class="w-8 h-8" @click="toggleMenu"></img>
-    </MenuButton>
-    <MenuItems>
-        <div class="menu bg-base-300 rounded-lg">
-            <MenuItem>
-            <simpleButton
-                :use-default="false"
-                button-title="Home"
-                bg-color="text-lg py-1 px-3 rounded-md transition"
-                hover="hover:bg-base-200"
-                button-route="/"
-            />
-            </MenuItem>
-            <MenuItem>
-            <simpleButton
-                :use-default="false"
-                button-title="About"
-                bg-color="text-lg py-1 px-3 rounded-md transition"
-                hover="hover:bg-base-200"
-                button-route="/about"
-            />
-            </MenuItem>
-        </div>
-    </MenuItems>
-  </Menu> -->
 </template>

@@ -53,6 +53,8 @@ function toggleModal() {
       <hamburgerMenu
         :is-admin="Boolean(sessionData.role === 'admin')"
         :is-logged-in="Boolean(sessionData.id)"
+        :session-data="sessionData"
+        @open-modal="toggleModal"
       ></hamburgerMenu>
     </div>
 

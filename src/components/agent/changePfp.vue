@@ -5,7 +5,7 @@ import { getData } from '@/helpers'
 import imageCompression from 'browser-image-compression'
 import api from '@/api'
 import SimpleButton from '../general_components/simpleButton.vue'
-import { get } from '@vueuse/core'
+import { vAutoAnimate } from '@formkit/auto-animate'
 
 const props = defineProps({
   pfpDisplay: String,
@@ -71,7 +71,7 @@ async function handleSubmit() {
 </script>
 
 <template>
-  <div class="flex flex-col w-full items-center justify-center">
+  <div class="flex flex-col w-full items-center justify-center" v-auto-animate">
     <div
       class="alert mb-2 self-center"
       :class="messageSuccess ? 'alert-success' : 'alert-error'"
