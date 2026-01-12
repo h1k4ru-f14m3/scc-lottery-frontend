@@ -111,7 +111,8 @@ async function toggleModal(extraData) {
         'Tickets Bought',
         'Status',
         'Image Link',
-        'Action',
+        'Confirm',
+        'Cancel',
       ]"
       :trows="response.orders"
       :use_extra_components="true"
