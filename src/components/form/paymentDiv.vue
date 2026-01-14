@@ -67,7 +67,7 @@ async function handleImage(event) {
                     <img src="/src/assets/qr_codes/qr_code_placeholder.png" alt="QRcode 1"></img>
                 </TabPanel>
                 <TabPanel>
-                    <img src="/src/assets/qr_codes/qr_code_placeholder_2.png" alt="QRcode 2"></img>
+                    <img src="/src/assets/qr_codes/thai.jpg" alt="QRcode 2"></img>
                 </TabPanel>
             </TabPanels>
 
